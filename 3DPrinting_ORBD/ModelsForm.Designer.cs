@@ -57,6 +57,8 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this._3DModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.buttonOpenPhoto = new System.Windows.Forms.Button();
+            this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
             modelIDLabel = new System.Windows.Forms.Label();
             orderIDLabel = new System.Windows.Forms.Label();
             sreenshotLabel = new System.Windows.Forms.Label();
@@ -118,7 +120,7 @@
             this._3DModelBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this._3DModelBindingNavigator.Name = "_3DModelBindingNavigator";
             this._3DModelBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this._3DModelBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this._3DModelBindingNavigator.Size = new System.Drawing.Size(710, 25);
             this._3DModelBindingNavigator.TabIndex = 0;
             this._3DModelBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -191,7 +193,7 @@
             // sreenshotLabel
             // 
             sreenshotLabel.AutoSize = true;
-            sreenshotLabel.Location = new System.Drawing.Point(343, 56);
+            sreenshotLabel.Location = new System.Drawing.Point(416, 25);
             sreenshotLabel.Name = "sreenshotLabel";
             sreenshotLabel.Size = new System.Drawing.Size(58, 13);
             sreenshotLabel.TabIndex = 5;
@@ -238,6 +240,7 @@
             this.sreenshotPictureBox.Location = new System.Drawing.Point(419, 56);
             this.sreenshotPictureBox.Name = "sreenshotPictureBox";
             this.sreenshotPictureBox.Size = new System.Drawing.Size(237, 177);
+            this.sreenshotPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.sreenshotPictureBox.TabIndex = 6;
             this.sreenshotPictureBox.TabStop = false;
             // 
@@ -304,11 +307,26 @@
             this._3DModelBindingNavigatorSaveItem.Text = "Сохранить данные";
             this._3DModelBindingNavigatorSaveItem.Click += new System.EventHandler(this._3DModelBindingNavigatorSaveItem_Click);
             // 
+            // buttonOpenPhoto
+            // 
+            this.buttonOpenPhoto.Location = new System.Drawing.Point(551, 239);
+            this.buttonOpenPhoto.Name = "buttonOpenPhoto";
+            this.buttonOpenPhoto.Size = new System.Drawing.Size(105, 26);
+            this.buttonOpenPhoto.TabIndex = 11;
+            this.buttonOpenPhoto.Text = "Открыть фото";
+            this.buttonOpenPhoto.UseVisualStyleBackColor = true;
+            this.buttonOpenPhoto.Click += new System.EventHandler(this.buttonOpenPhoto_Click);
+            // 
+            // openFileDialogPhoto
+            // 
+            this.openFileDialogPhoto.FileName = "openFileDialog1";
+            // 
             // ModelsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 286);
+            this.ClientSize = new System.Drawing.Size(710, 284);
+            this.Controls.Add(this.buttonOpenPhoto);
             this.Controls.Add(modelIDLabel);
             this.Controls.Add(this.modelIDTextBox);
             this.Controls.Add(orderIDLabel);
@@ -358,5 +376,7 @@
         private System.Windows.Forms.PictureBox sreenshotPictureBox;
         private System.Windows.Forms.TextBox dimensionsTextBox;
         private System.Windows.Forms.TextBox fileFormatTextBox;
+        private System.Windows.Forms.Button buttonOpenPhoto;
+        private System.Windows.Forms.OpenFileDialog openFileDialogPhoto;
     }
 }

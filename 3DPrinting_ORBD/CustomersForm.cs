@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _3DPrinting_ORBD
@@ -38,6 +31,21 @@ namespace _3DPrinting_ORBD
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_3D_PrintingDataSet.Customer". При необходимости она может быть перемещена или удалена.
             this.customerTableAdapter.Fill(this._3D_PrintingDataSet.Customer);
 
+        }
+
+        private static CustomersForm f;
+        public static CustomersForm cf
+        {
+            get
+            {
+                if (f == null || f.IsDisposed) f = new CustomersForm();
+                return f;
+            }
+        }
+        public void ShowForm()
+        {
+            Show();
+            Activate();
         }
     }
 }

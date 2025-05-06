@@ -32,8 +32,18 @@ namespace _3DPrinting_ORBD
 
         private void ModelsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModelsForm md = new ModelsForm();
-            md.Show();
+            ModelsForm.md.ShowForm();
+        }
+
+        private void CustomersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomersForm.cf.ShowForm();
+
+        }
+
+        private void OrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormOrders.of.ShowForm();
         }
     }
 }

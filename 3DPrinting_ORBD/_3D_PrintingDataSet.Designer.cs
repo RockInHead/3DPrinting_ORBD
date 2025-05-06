@@ -1575,7 +1575,6 @@ namespace _3DPrinting_ORBD {
                 this.columnOrderID.Unique = true;
                 this.columnCustomerID.AllowDBNull = false;
                 this.columnCostPrice.AllowDBNull = false;
-                this.columnPlastic.AllowDBNull = false;
                 this.columnPlastic.MaxLength = 10;
                 this.columnOrderStatus.AllowDBNull = false;
                 this.columnOrderStatus.MaxLength = 20;
@@ -2070,7 +2069,12 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Plastic {
                 get {
-                    return ((string)(this[this.tableOrder.PlasticColumn]));
+                    if (this.IsPlasticNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tableOrder.PlasticColumn]));
+                    }
                 }
                 set {
                     this[this.tableOrder.PlasticColumn] = value;
@@ -2130,6 +2134,18 @@ namespace _3DPrinting_ORBD {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Order_Customer"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPlasticNull() {
+                return this.IsNull(this.tableOrder.PlasticColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPlasticNull() {
+                this[this.tableOrder.PlasticColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3591,7 +3607,7 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_CustomerID));
             this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_CostPrice));
             if ((Original_Plastic == null)) {
-                throw new global::System.ArgumentNullException("Original_Plastic");
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Plastic));
@@ -3630,7 +3646,7 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CustomerID));
             this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(CostPrice));
             if ((Plastic == null)) {
-                throw new global::System.ArgumentNullException("Plastic");
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Plastic));
@@ -3685,7 +3701,7 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CustomerID));
             this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(CostPrice));
             if ((Plastic == null)) {
-                throw new global::System.ArgumentNullException("Plastic");
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Plastic));
@@ -3703,7 +3719,7 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_CustomerID));
             this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_CostPrice));
             if ((Original_Plastic == null)) {
-                throw new global::System.ArgumentNullException("Original_Plastic");
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Plastic));
