@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _3DPrinting_ORBD
@@ -45,6 +39,35 @@ namespace _3DPrinting_ORBD
         {
             Show();
             Activate();
+        }
+
+        private void finishedDetailDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((finishedDetailDataGridView.Rows[e.RowIndex]
+                     .Cells["DataGridViewCheckBoxColumnDetailStatus"].Value
+                 == null)
+                || (finishedDetailDataGridView.Rows[e.RowIndex]
+                        .Cells["DataGridViewCheckBoxColumnDetailStatus"
+                        ]
+                        .Value.ToString()
+                    == ""))
+            {
+                e.CellStyle.BackColor = Color.White;
+            }
+            else if (finishedDetailDataGridView.Rows[e.RowIndex]
+                         .Cells["DataGridViewCheckBoxColumnDetailStatus"
+                         ]
+                         .Value.ToString()
+                     == "True")
+            {
+                    e.CellStyle.BackColor = Color.LightGreen;
+                
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.Pink;
+            }
+
         }
     }
 }

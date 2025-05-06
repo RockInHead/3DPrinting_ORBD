@@ -52,7 +52,7 @@
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DataGridViewCheckBoxColumnDetailStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this._3D_PrintingDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finishedDetailBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.finishedDetailBindingNavigator)).BeginInit();
@@ -217,13 +217,14 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewCheckBoxColumn1});
+            this.DataGridViewCheckBoxColumnDetailStatus});
             this.finishedDetailDataGridView.DataSource = this.finishedDetailBindingSource;
             this.finishedDetailDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.finishedDetailDataGridView.Location = new System.Drawing.Point(0, 25);
             this.finishedDetailDataGridView.Name = "finishedDetailDataGridView";
             this.finishedDetailDataGridView.Size = new System.Drawing.Size(749, 308);
             this.finishedDetailDataGridView.TabIndex = 1;
+            this.finishedDetailDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.finishedDetailDataGridView_CellFormatting);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -246,14 +247,14 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "DateOfManufacture";
-            this.dataGridViewTextBoxColumn4.HeaderText = "DateOfManufacture";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Дата изготовления";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // dataGridViewCheckBoxColumn1
+            // DataGridViewCheckBoxColumnDetailStatus
             // 
-            this.dataGridViewCheckBoxColumn1.DataPropertyName = "DetailStatus";
-            this.dataGridViewCheckBoxColumn1.HeaderText = "Деталь готова";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
+            this.DataGridViewCheckBoxColumnDetailStatus.DataPropertyName = "DetailStatus";
+            this.DataGridViewCheckBoxColumnDetailStatus.HeaderText = "Деталь готова";
+            this.DataGridViewCheckBoxColumnDetailStatus.Name = "DataGridViewCheckBoxColumnDetailStatus";
             // 
             // FinishedDetailsForm
             // 
@@ -301,6 +302,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumnDetailStatus;
     }
 }

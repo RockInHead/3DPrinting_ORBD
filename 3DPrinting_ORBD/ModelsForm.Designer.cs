@@ -40,25 +40,25 @@
             this._3DModelTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters._3DModelTableAdapter();
             this.tableAdapterManager = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager();
             this._3DModelBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this._3DModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.modelIDTextBox = new System.Windows.Forms.TextBox();
             this.orderIDTextBox = new System.Windows.Forms.TextBox();
             this.dimensionsTextBox = new System.Windows.Forms.TextBox();
             this.fileFormatTextBox = new System.Windows.Forms.TextBox();
-            this.sreenshotPictureBox = new System.Windows.Forms.PictureBox();
             this.buttonOpenPhoto = new System.Windows.Forms.Button();
             this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
+            this.sreenshotPictureBox = new System.Windows.Forms.PictureBox();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this._3DModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             modelIDLabel = new System.Windows.Forms.Label();
             orderIDLabel = new System.Windows.Forms.Label();
             sreenshotLabel = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             // modelIDLabel
             // 
             modelIDLabel.AutoSize = true;
-            modelIDLabel.Location = new System.Drawing.Point(88, 59);
+            modelIDLabel.Location = new System.Drawing.Point(34, 56);
             modelIDLabel.Name = "modelIDLabel";
             modelIDLabel.Size = new System.Drawing.Size(53, 13);
             modelIDLabel.TabIndex = 1;
@@ -83,7 +83,7 @@
             // orderIDLabel
             // 
             orderIDLabel.AutoSize = true;
-            orderIDLabel.Location = new System.Drawing.Point(91, 92);
+            orderIDLabel.Location = new System.Drawing.Point(37, 92);
             orderIDLabel.Name = "orderIDLabel";
             orderIDLabel.Size = new System.Drawing.Size(50, 13);
             orderIDLabel.TabIndex = 3;
@@ -92,29 +92,29 @@
             // sreenshotLabel
             // 
             sreenshotLabel.AutoSize = true;
-            sreenshotLabel.Location = new System.Drawing.Point(416, 25);
+            sreenshotLabel.Location = new System.Drawing.Point(306, 25);
             sreenshotLabel.Name = "sreenshotLabel";
-            sreenshotLabel.Size = new System.Drawing.Size(58, 13);
+            sreenshotLabel.Size = new System.Drawing.Size(98, 13);
             sreenshotLabel.TabIndex = 5;
-            sreenshotLabel.Text = "Sreenshot:";
+            sreenshotLabel.Text = "Скриншот модели";
             // 
             // dimensionsLabel
             // 
             dimensionsLabel.AutoSize = true;
-            dimensionsLabel.Location = new System.Drawing.Point(91, 177);
+            dimensionsLabel.Location = new System.Drawing.Point(42, 174);
             dimensionsLabel.Name = "dimensionsLabel";
-            dimensionsLabel.Size = new System.Drawing.Size(64, 13);
+            dimensionsLabel.Size = new System.Drawing.Size(57, 13);
             dimensionsLabel.TabIndex = 7;
-            dimensionsLabel.Text = "Dimensions:";
+            dimensionsLabel.Text = "Размеры:";
             // 
             // fileFormatLabel
             // 
             fileFormatLabel.AutoSize = true;
-            fileFormatLabel.Location = new System.Drawing.Point(91, 131);
+            fileFormatLabel.Location = new System.Drawing.Point(12, 134);
             fileFormatLabel.Name = "fileFormatLabel";
-            fileFormatLabel.Size = new System.Drawing.Size(61, 13);
+            fileFormatLabel.Size = new System.Drawing.Size(87, 13);
             fileFormatLabel.TabIndex = 9;
-            fileFormatLabel.Text = "File Format:";
+            fileFormatLabel.Text = "Формат файла:";
             // 
             // _3D_PrintingDataSet
             // 
@@ -165,9 +165,98 @@
             this._3DModelBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this._3DModelBindingNavigator.Name = "_3DModelBindingNavigator";
             this._3DModelBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this._3DModelBindingNavigator.Size = new System.Drawing.Size(707, 25);
+            this._3DModelBindingNavigator.Size = new System.Drawing.Size(571, 25);
             this._3DModelBindingNavigator.TabIndex = 0;
             this._3DModelBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
+            this.bindingNavigatorCountItem.Text = "для {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
+            // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // modelIDTextBox
+            // 
+            this.modelIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "ModelID", true));
+            this.modelIDTextBox.Location = new System.Drawing.Point(107, 53);
+            this.modelIDTextBox.Name = "modelIDTextBox";
+            this.modelIDTextBox.Size = new System.Drawing.Size(72, 20);
+            this.modelIDTextBox.TabIndex = 2;
+            // 
+            // orderIDTextBox
+            // 
+            this.orderIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "OrderID", true));
+            this.orderIDTextBox.Location = new System.Drawing.Point(107, 89);
+            this.orderIDTextBox.Name = "orderIDTextBox";
+            this.orderIDTextBox.Size = new System.Drawing.Size(72, 20);
+            this.orderIDTextBox.TabIndex = 4;
+            // 
+            // dimensionsTextBox
+            // 
+            this.dimensionsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "Dimensions", true));
+            this.dimensionsTextBox.Location = new System.Drawing.Point(107, 174);
+            this.dimensionsTextBox.Multiline = true;
+            this.dimensionsTextBox.Name = "dimensionsTextBox";
+            this.dimensionsTextBox.Size = new System.Drawing.Size(153, 59);
+            this.dimensionsTextBox.TabIndex = 8;
+            // 
+            // fileFormatTextBox
+            // 
+            this.fileFormatTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "FileFormat", true));
+            this.fileFormatTextBox.Location = new System.Drawing.Point(107, 127);
+            this.fileFormatTextBox.Name = "fileFormatTextBox";
+            this.fileFormatTextBox.Size = new System.Drawing.Size(72, 20);
+            this.fileFormatTextBox.TabIndex = 10;
+            // 
+            // buttonOpenPhoto
+            // 
+            this.buttonOpenPhoto.Location = new System.Drawing.Point(441, 239);
+            this.buttonOpenPhoto.Name = "buttonOpenPhoto";
+            this.buttonOpenPhoto.Size = new System.Drawing.Size(105, 26);
+            this.buttonOpenPhoto.TabIndex = 11;
+            this.buttonOpenPhoto.Text = "Открыть фото";
+            this.buttonOpenPhoto.UseVisualStyleBackColor = true;
+            this.buttonOpenPhoto.Click += new System.EventHandler(this.buttonOpenPhoto_Click);
+            // 
+            // openFileDialogPhoto
+            // 
+            this.openFileDialogPhoto.FileName = "openFileDialog1";
+            // 
+            // sreenshotPictureBox
+            // 
+            this.sreenshotPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this._3DModelBindingSource, "Sreenshot", true));
+            this.sreenshotPictureBox.Location = new System.Drawing.Point(309, 56);
+            this.sreenshotPictureBox.Name = "sreenshotPictureBox";
+            this.sreenshotPictureBox.Size = new System.Drawing.Size(237, 177);
+            this.sreenshotPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.sreenshotPictureBox.TabIndex = 6;
+            this.sreenshotPictureBox.TabStop = false;
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -177,13 +266,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
-            this.bindingNavigatorCountItem.Text = "для {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -212,26 +294,6 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
             // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -250,11 +312,6 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
             // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
             // _3DModelBindingNavigatorSaveItem
             // 
             this._3DModelBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -264,68 +321,11 @@
             this._3DModelBindingNavigatorSaveItem.Text = "Сохранить данные";
             this._3DModelBindingNavigatorSaveItem.Click += new System.EventHandler(this._3DModelBindingNavigatorSaveItem_Click);
             // 
-            // modelIDTextBox
-            // 
-            this.modelIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "ModelID", true));
-            this.modelIDTextBox.Location = new System.Drawing.Point(158, 56);
-            this.modelIDTextBox.Name = "modelIDTextBox";
-            this.modelIDTextBox.Size = new System.Drawing.Size(128, 20);
-            this.modelIDTextBox.TabIndex = 2;
-            // 
-            // orderIDTextBox
-            // 
-            this.orderIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "OrderID", true));
-            this.orderIDTextBox.Location = new System.Drawing.Point(158, 85);
-            this.orderIDTextBox.Name = "orderIDTextBox";
-            this.orderIDTextBox.Size = new System.Drawing.Size(128, 20);
-            this.orderIDTextBox.TabIndex = 4;
-            // 
-            // dimensionsTextBox
-            // 
-            this.dimensionsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "Dimensions", true));
-            this.dimensionsTextBox.Location = new System.Drawing.Point(161, 177);
-            this.dimensionsTextBox.Multiline = true;
-            this.dimensionsTextBox.Name = "dimensionsTextBox";
-            this.dimensionsTextBox.Size = new System.Drawing.Size(125, 59);
-            this.dimensionsTextBox.TabIndex = 8;
-            // 
-            // fileFormatTextBox
-            // 
-            this.fileFormatTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "FileFormat", true));
-            this.fileFormatTextBox.Location = new System.Drawing.Point(158, 131);
-            this.fileFormatTextBox.Name = "fileFormatTextBox";
-            this.fileFormatTextBox.Size = new System.Drawing.Size(128, 20);
-            this.fileFormatTextBox.TabIndex = 10;
-            // 
-            // sreenshotPictureBox
-            // 
-            this.sreenshotPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this._3DModelBindingSource, "Sreenshot", true));
-            this.sreenshotPictureBox.Location = new System.Drawing.Point(419, 56);
-            this.sreenshotPictureBox.Name = "sreenshotPictureBox";
-            this.sreenshotPictureBox.Size = new System.Drawing.Size(237, 177);
-            this.sreenshotPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.sreenshotPictureBox.TabIndex = 6;
-            this.sreenshotPictureBox.TabStop = false;
-            // 
-            // buttonOpenPhoto
-            // 
-            this.buttonOpenPhoto.Location = new System.Drawing.Point(551, 239);
-            this.buttonOpenPhoto.Name = "buttonOpenPhoto";
-            this.buttonOpenPhoto.Size = new System.Drawing.Size(105, 26);
-            this.buttonOpenPhoto.TabIndex = 11;
-            this.buttonOpenPhoto.Text = "Открыть фото";
-            this.buttonOpenPhoto.UseVisualStyleBackColor = true;
-            this.buttonOpenPhoto.Click += new System.EventHandler(this.buttonOpenPhoto_Click);
-            // 
-            // openFileDialogPhoto
-            // 
-            this.openFileDialogPhoto.FileName = "openFileDialog1";
-            // 
             // ModelsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 285);
+            this.ClientSize = new System.Drawing.Size(571, 291);
             this.Controls.Add(this.buttonOpenPhoto);
             this.Controls.Add(modelIDLabel);
             this.Controls.Add(this.modelIDTextBox);

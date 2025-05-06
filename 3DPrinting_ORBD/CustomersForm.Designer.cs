@@ -230,14 +230,15 @@
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "FIO";
-            this.dataGridViewTextBoxColumn2.HeaderText = "FIO";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "PhoneNumber";
-            this.dataGridViewTextBoxColumn3.HeaderText = "PhoneNumber";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Номер телефона";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 120;
             // 
             // CustomersForm
             // 
