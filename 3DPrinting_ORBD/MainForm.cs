@@ -1,5 +1,8 @@
-﻿using System;
+﻿using _3DPrinting_ORBD.Properties;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
+
 
 
 namespace _3DPrinting_ORBD
@@ -9,6 +12,7 @@ namespace _3DPrinting_ORBD
         public MainForm()
         {
             InitializeComponent();
+          
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,6 +48,16 @@ namespace _3DPrinting_ORBD
         private void OrdersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormOrders.of.ShowForm();
+        }
+
+        private void готовыеДеталиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FinishedDetailsForm.fd.ShowForm();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Settings.Default.Save();
         }
     }
 }

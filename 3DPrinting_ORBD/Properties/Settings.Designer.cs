@@ -33,5 +33,17 @@ namespace _3DPrinting_ORBD.Properties {
                 return ((string)(this["_3D_PrintingConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100, 100")]
+        public global::System.Drawing.Point FormPos {
+            get {
+                return ((global::System.Drawing.Point)(this["FormPos"]));
+            }
+            set {
+                this["FormPos"] = value;
+            }
+        }
     }
 }

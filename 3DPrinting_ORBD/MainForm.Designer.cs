@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +38,13 @@
             this.готовыеДеталиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripMain = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.файлToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.выходToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMain = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.contextMenuStripMain.SuspendLayout();
             this.toolStripMain.SuspendLayout();
@@ -69,24 +69,6 @@
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
-            // 
-            // выходToolStripMenuItem
-            // 
-            this.выходToolStripMenuItem.Image = global::_3DPrinting_ORBD.Properties.Resources.exit_icon_icons_com_70975;
-            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.выходToolStripMenuItem.Text = "Выход";
-            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
-            // 
-            // оПрограммеToolStripMenuItem
-            // 
-            this.оПрограммеToolStripMenuItem.Image = global::_3DPrinting_ORBD.Properties.Resources.circle_customer_help_info_information_service_support_icon_123208;
-            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
-            this.оПрограммеToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
-            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.оПрограммеToolStripMenuItem.Text = "О программе...";
-            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 
@@ -125,6 +107,7 @@
             this.готовыеДеталиToolStripMenuItem.Name = "готовыеДеталиToolStripMenuItem";
             this.готовыеДеталиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.готовыеДеталиToolStripMenuItem.Text = "Готовые детали";
+            this.готовыеДеталиToolStripMenuItem.Click += new System.EventHandler(this.готовыеДеталиToolStripMenuItem_Click);
             // 
             // contextMenuStripMain
             // 
@@ -142,6 +125,17 @@
             this.файлToolStripMenuItem1.Size = new System.Drawing.Size(103, 22);
             this.файлToolStripMenuItem1.Text = "Файл";
             // 
+            // toolStripMain
+            // 
+            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2});
+            this.toolStripMain.Location = new System.Drawing.Point(0, 24);
+            this.toolStripMain.Name = "toolStripMain";
+            this.toolStripMain.Size = new System.Drawing.Size(766, 25);
+            this.toolStripMain.TabIndex = 1;
+            this.toolStripMain.Text = "toolStrip1";
+            // 
             // выходToolStripMenuItem1
             // 
             this.выходToolStripMenuItem1.Image = global::_3DPrinting_ORBD.Properties.Resources.exit_icon_icons_com_70975;
@@ -157,17 +151,6 @@
             this.оПрограммеToolStripMenuItem1.Size = new System.Drawing.Size(158, 22);
             this.оПрограммеToolStripMenuItem1.Text = "О программе...";
             this.оПрограммеToolStripMenuItem1.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
-            // 
-            // toolStripMain
-            // 
-            this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
-            this.toolStripMain.Location = new System.Drawing.Point(0, 24);
-            this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(766, 25);
-            this.toolStripMain.TabIndex = 1;
-            this.toolStripMain.Text = "toolStrip1";
             // 
             // toolStripButton1
             // 
@@ -191,6 +174,24 @@
             this.toolStripButton2.ToolTipText = "Информация о программе";
             this.toolStripButton2.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
+            // выходToolStripMenuItem
+            // 
+            this.выходToolStripMenuItem.Image = global::_3DPrinting_ORBD.Properties.Resources.exit_icon_icons_com_70975;
+            this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
+            this.выходToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            this.оПрограммеToolStripMenuItem.Image = global::_3DPrinting_ORBD.Properties.Resources.circle_customer_help_info_information_service_support_icon_123208;
+            this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            this.оПрограммеToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
+            this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.оПрограммеToolStripMenuItem.Text = "О программе...";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,10 +200,14 @@
             this.ContextMenuStrip = this.contextMenuStripMain;
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.menuStripMain);
+            this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::_3DPrinting_ORBD.Properties.Settings.Default, "FormPos", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.Location = global::_3DPrinting_ORBD.Properties.Settings.Default.FormPos;
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Программа для 3д-принтера";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.menuStripMain.ResumeLayout(false);
             this.menuStripMain.PerformLayout();
             this.contextMenuStripMain.ResumeLayout(false);

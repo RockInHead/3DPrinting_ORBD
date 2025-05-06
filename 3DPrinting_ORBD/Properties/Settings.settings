@@ -10,5 +10,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=TIMUR_HONOR\SQLEXPRESS;Initial Catalog="3D printing";Integrated Security=True;Encrypt=False</Value>
     </Setting>
+    <Setting Name="FormPos" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">100, 100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

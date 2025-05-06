@@ -16,5 +16,35 @@ namespace _3DPrinting_ORBD
         {
             InitializeComponent();
         }
+
+        private void finishedDetailBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.finishedDetailBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this._3D_PrintingDataSet);
+
+        }
+
+        private void FinishedDetailsForm_Load(object sender, EventArgs e)
+        {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_3D_PrintingDataSet.FinishedDetail". При необходимости она может быть перемещена или удалена.
+            this.finishedDetailTableAdapter.Fill(this._3D_PrintingDataSet.FinishedDetail);
+
+        }
+
+        private static FinishedDetailsForm f;
+        public static FinishedDetailsForm fd
+        {
+            get
+            {
+                if (f == null || f.IsDisposed) f= new FinishedDetailsForm();
+                return f;
+            }
+        }
+        public void ShowForm()
+        {
+            Show();
+            Activate();
+        }
     }
 }
