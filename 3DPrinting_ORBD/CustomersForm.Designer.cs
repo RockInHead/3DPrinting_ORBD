@@ -107,7 +107,7 @@
             this.customerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.customerBindingNavigator.Name = "customerBindingNavigator";
             this.customerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customerBindingNavigator.Size = new System.Drawing.Size(800, 25);
+            this.customerBindingNavigator.Size = new System.Drawing.Size(646, 25);
             this.customerBindingNavigator.TabIndex = 0;
             this.customerBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -218,7 +218,7 @@
             this.customerDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customerDataGridView.Location = new System.Drawing.Point(0, 25);
             this.customerDataGridView.Name = "customerDataGridView";
-            this.customerDataGridView.Size = new System.Drawing.Size(800, 425);
+            this.customerDataGridView.Size = new System.Drawing.Size(646, 227);
             this.customerDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
@@ -243,9 +243,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(646, 252);
             this.Controls.Add(this.customerDataGridView);
             this.Controls.Add(this.customerBindingNavigator);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CustomersForm";
             this.Text = "Заказчики";
             this.Load += new System.EventHandler(this.CustomersForm_Load);

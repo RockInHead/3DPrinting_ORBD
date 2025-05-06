@@ -63,6 +63,46 @@ namespace _3DPrinting_ORBD.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1491253675_19document_list_82899 {
+            get {
+                object obj = ResourceManager.GetObject("1491253675-19document-list_82899", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3741756_bussiness_ecommerce_marketplace_onlinestore_store_user_108907 {
+            get {
+                object obj = ResourceManager.GetObject("3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3741756_bussiness_ecommerce_marketplace_onlinestore_store_user_108907__1_ {
+            get {
+                object obj = ResourceManager.GetObject("3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3741756_bussiness_ecommerce_marketplace_onlinestore_store_user_108907__2_ {
+            get {
+                object obj = ResourceManager.GetObject("3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap circle_customer_help_info_information_service_support_icon_123208 {
             get {
                 object obj = ResourceManager.GetObject("circle_customer_help_info_information_service_support_icon_123208", resourceCulture);
@@ -76,6 +116,56 @@ namespace _3DPrinting_ORBD.Properties {
         internal static System.Drawing.Bitmap exit_icon_icons_com_70975 {
             get {
                 object obj = ResourceManager.GetObject("exit_icon-icons.com_70975", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ext_file_generic_filetype_icon_176256 {
+            get {
+                object obj = ResourceManager.GetObject("ext_file_generic_filetype_icon_176256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap free_icon_precision_17799347 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-precision-17799347", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap list_symbol_of_three_items_with_dots_icon_icons_com_72994 {
+            get {
+                object obj = ResourceManager.GetObject("list-symbol-of-three-items-with-dots_icon-icons.com_72994", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap package3_122406 {
+            get {
+                object obj = ResourceManager.GetObject("package3_122406", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap printer_d_nozzle_icon_135279 {
+            get {
+                object obj = ResourceManager.GetObject("printer_d_nozzle_icon_135279", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

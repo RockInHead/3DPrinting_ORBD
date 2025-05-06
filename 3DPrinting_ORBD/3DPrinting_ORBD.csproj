@@ -141,5 +141,32 @@
   <ItemGroup>
     <None Include="Resources\circle_customer_help_info_information_service_support_icon_123208.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1491253675-19document-list_82899.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer_d_nozzle_icon_135279.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\free-icon-precision-17799347.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\package3_122406.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ext_file_generic_filetype_icon_176256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list-symbol-of-three-items-with-dots_icon-icons.com_72994.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
