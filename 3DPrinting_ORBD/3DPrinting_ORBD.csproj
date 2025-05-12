@@ -78,6 +78,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="_3D_PrintingDataSet.cs">
       <DependentUpon>_3D_PrintingDataSet.xsd</DependentUpon>
     </Compile>
@@ -103,14 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -136,37 +136,28 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit_icon-icons.com_70975.png" />
+    <None Include="Resources\Exit_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\circle_customer_help_info_information_service_support_icon_123208.png" />
+    <None Include="Resources\Information_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907.png" />
+    <None Include="Resources\Customers_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907 %281%29.png" />
+    <None Include="Resources\Orders_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3741756-bussiness-ecommerce-marketplace-onlinestore-store-user_108907 %282%29.png" />
+    <None Include="Resources\Models_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1491253675-19document-list_82899.png" />
+    <None Include="Resources\FinishedDetails_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\printer_d_nozzle_icon_135279.png" />
+    <None Include="Resources\File_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\free-icon-precision-17799347.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\package3_122406.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ext_file_generic_filetype_icon_176256.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\list-symbol-of-three-items-with-dots_icon-icons.com_72994.png" />
+    <None Include="Resources\Menu_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
