@@ -29,9 +29,18 @@ namespace _3DPrinting_ORBD
 
         private void OrdersListSaveItemToolStripButton_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.orderBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this._3D_PrintingDataSet);
+            try
+            {
+                this.Validate();
+                this.orderBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this._3D_PrintingDataSet);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Ошибка при заполнении списка заказов!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
         }
 
         static OrdersListForm f;
@@ -49,5 +58,9 @@ namespace _3DPrinting_ORBD
             Activate();
         }
 
+        private void orderDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
     }
 }

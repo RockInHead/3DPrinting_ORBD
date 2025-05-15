@@ -354,6 +354,7 @@
             this.orderDataGridView.Name = "orderDataGridView";
             this.orderDataGridView.Size = new System.Drawing.Size(855, 265);
             this.orderDataGridView.TabIndex = 0;
+            this.orderDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.orderDataGridView_DataError);
             // 
             // OrdersListBindingNavigator
             // 
