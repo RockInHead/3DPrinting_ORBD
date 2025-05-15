@@ -31,24 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrders));
             this.orderBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.orderDataGridView = new System.Windows.Forms.DataGridView();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._3D_PrintingDataSet = new _3DPrinting_ORBD._3D_PrintingDataSet();
-            this.orderTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.OrderTableAdapter();
-            this.tableAdapterManager = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager();
-            this.dPrintingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.orderBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.orderDataGridView = new System.Windows.Forms.DataGridView();
             this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deadlineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,11 +54,14 @@
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.OrderTableAdapter();
+            this.tableAdapterManager = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager();
+            this.dPrintingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingNavigator)).BeginInit();
             this.orderBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._3D_PrintingDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dPrintingDataSetBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,59 +94,16 @@
             this.orderBindingNavigator.Size = new System.Drawing.Size(904, 25);
             this.orderBindingNavigator.TabIndex = 0;
             this.orderBindingNavigator.Text = "bindingNavigator1";
+            this.orderBindingNavigator.RefreshItems += new System.EventHandler(this.orderBindingNavigator_RefreshItems);
             // 
-            // bindingNavigatorCountItem
+            // bindingNavigatorAddNewItem
             // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
-            this.bindingNavigatorCountItem.Text = "для {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // orderDataGridView
-            // 
-            this.orderDataGridView.AutoGenerateColumns = false;
-            this.orderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.orderDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderIDDataGridViewTextBoxColumn,
-            this.customerIDDataGridViewTextBoxColumn,
-            this.deadlineDataGridViewTextBoxColumn,
-            this.PlasticColumn,
-            this.orderStatusDataGridViewTextBoxColumn,
-            this.costDataGridViewTextBoxColumn,
-            this.costPriceDataGridViewTextBoxColumn,
-            this.profitDataGridViewTextBoxColumn});
-            this.orderDataGridView.DataSource = this.orderBindingSource;
-            this.orderDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderDataGridView.Location = new System.Drawing.Point(0, 25);
-            this.orderDataGridView.Name = "orderDataGridView";
-            this.orderDataGridView.Size = new System.Drawing.Size(904, 222);
-            this.orderDataGridView.TabIndex = 1;
-            this.orderDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.orderDataGridView_DataError);
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Добавить";
             // 
             // orderBindingSource
             // 
@@ -158,32 +115,12 @@
             this._3D_PrintingDataSet.DataSetName = "_3D_PrintingDataSet";
             this._3D_PrintingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // orderTableAdapter
+            // bindingNavigatorCountItem
             // 
-            this.orderTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager._3DModelTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CustomerTableAdapter = null;
-            this.tableAdapterManager.FinishedDetailTableAdapter = null;
-            this.tableAdapterManager.OrderTableAdapter = this.orderTableAdapter;
-            this.tableAdapterManager.UpdateOrder = _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // dPrintingDataSetBindingSource
-            // 
-            this.dPrintingDataSetBindingSource.DataSource = this._3D_PrintingDataSet;
-            this.dPrintingDataSetBindingSource.Position = 0;
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
+            this.bindingNavigatorCountItem.Text = "для {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -212,6 +149,26 @@
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -230,6 +187,11 @@
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
             // 
+            // bindingNavigatorSeparator2
+            // 
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
             // orderBindingNavigatorSaveItem
             // 
             this.orderBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -238,6 +200,27 @@
             this.orderBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.orderBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.orderBindingNavigatorSaveItem.Click += new System.EventHandler(this.orderBindingNavigatorSaveItem_Click);
+            // 
+            // orderDataGridView
+            // 
+            this.orderDataGridView.AutoGenerateColumns = false;
+            this.orderDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderIDDataGridViewTextBoxColumn,
+            this.customerIDDataGridViewTextBoxColumn,
+            this.deadlineDataGridViewTextBoxColumn,
+            this.PlasticColumn,
+            this.orderStatusDataGridViewTextBoxColumn,
+            this.costDataGridViewTextBoxColumn,
+            this.costPriceDataGridViewTextBoxColumn,
+            this.profitDataGridViewTextBoxColumn});
+            this.orderDataGridView.DataSource = this.orderBindingSource;
+            this.orderDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.orderDataGridView.Location = new System.Drawing.Point(0, 25);
+            this.orderDataGridView.Name = "orderDataGridView";
+            this.orderDataGridView.Size = new System.Drawing.Size(904, 222);
+            this.orderDataGridView.TabIndex = 1;
+            this.orderDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.orderDataGridView_DataError);
             // 
             // orderIDDataGridViewTextBoxColumn
             // 
@@ -301,6 +284,24 @@
             this.profitDataGridViewTextBoxColumn.HeaderText = "Прибыль";
             this.profitDataGridViewTextBoxColumn.Name = "profitDataGridViewTextBoxColumn";
             // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager._3DModelTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CustomerTableAdapter = null;
+            this.tableAdapterManager.FinishedDetailTableAdapter = null;
+            this.tableAdapterManager.OrderTableAdapter = this.orderTableAdapter;
+            this.tableAdapterManager.UpdateOrder = _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // dPrintingDataSetBindingSource
+            // 
+            this.dPrintingDataSetBindingSource.DataSource = this._3D_PrintingDataSet;
+            this.dPrintingDataSetBindingSource.Position = 0;
+            // 
             // FormOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,9 +316,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingNavigator)).EndInit();
             this.orderBindingNavigator.ResumeLayout(false);
             this.orderBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._3D_PrintingDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dPrintingDataSetBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

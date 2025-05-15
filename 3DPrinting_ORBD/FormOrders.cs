@@ -43,5 +43,10 @@ namespace _3DPrinting_ORBD
         {
             e.Cancel = true;
         }
+
+        private void orderBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
     }
 }
