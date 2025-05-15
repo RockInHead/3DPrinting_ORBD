@@ -45,6 +45,9 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.orderBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.FindToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.FindToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.orderDataGridView = new System.Windows.Forms.DataGridView();
             this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +60,7 @@
             this.orderTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.OrderTableAdapter();
             this.tableAdapterManager = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager();
             this.dPrintingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FindCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingNavigator)).BeginInit();
             this.orderBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -83,7 +87,10 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.orderBindingNavigatorSaveItem});
+            this.orderBindingNavigatorSaveItem,
+            this.toolStripSeparator1,
+            this.FindToolStripTextBox,
+            this.FindToolStripButton});
             this.orderBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.orderBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.orderBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -91,10 +98,9 @@
             this.orderBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.orderBindingNavigator.Name = "orderBindingNavigator";
             this.orderBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.orderBindingNavigator.Size = new System.Drawing.Size(904, 25);
+            this.orderBindingNavigator.Size = new System.Drawing.Size(980, 25);
             this.orderBindingNavigator.TabIndex = 0;
             this.orderBindingNavigator.Text = "bindingNavigator1";
-            this.orderBindingNavigator.RefreshItems += new System.EventHandler(this.orderBindingNavigator_RefreshItems);
             // 
             // bindingNavigatorAddNewItem
             // 
@@ -201,6 +207,27 @@
             this.orderBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.orderBindingNavigatorSaveItem.Click += new System.EventHandler(this.orderBindingNavigatorSaveItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // FindToolStripTextBox
+            // 
+            this.FindToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.FindToolStripTextBox.Name = "FindToolStripTextBox";
+            this.FindToolStripTextBox.Size = new System.Drawing.Size(100, 25);
+            // 
+            // FindToolStripButton
+            // 
+            this.FindToolStripButton.Image = global::_3DPrinting_ORBD.Properties.Resources.searchmagnifierinterfacesymbol1_79893;
+            this.FindToolStripButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.FindToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.FindToolStripButton.Name = "FindToolStripButton";
+            this.FindToolStripButton.Size = new System.Drawing.Size(62, 22);
+            this.FindToolStripButton.Text = "Поиск";
+            this.FindToolStripButton.Click += new System.EventHandler(this.FindToolStripButton_Click);
+            // 
             // orderDataGridView
             // 
             this.orderDataGridView.AutoGenerateColumns = false;
@@ -218,7 +245,7 @@
             this.orderDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.orderDataGridView.Location = new System.Drawing.Point(0, 25);
             this.orderDataGridView.Name = "orderDataGridView";
-            this.orderDataGridView.Size = new System.Drawing.Size(904, 222);
+            this.orderDataGridView.Size = new System.Drawing.Size(980, 275);
             this.orderDataGridView.TabIndex = 1;
             this.orderDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.orderDataGridView_DataError);
             // 
@@ -302,11 +329,23 @@
             this.dPrintingDataSetBindingSource.DataSource = this._3D_PrintingDataSet;
             this.dPrintingDataSetBindingSource.Position = 0;
             // 
+            // FindCheckBox
+            // 
+            this.FindCheckBox.AutoSize = true;
+            this.FindCheckBox.Location = new System.Drawing.Point(462, 2);
+            this.FindCheckBox.Name = "FindCheckBox";
+            this.FindCheckBox.Size = new System.Drawing.Size(66, 17);
+            this.FindCheckBox.TabIndex = 2;
+            this.FindCheckBox.Text = "Фильтр";
+            this.FindCheckBox.UseVisualStyleBackColor = true;
+            this.FindCheckBox.CheckedChanged += new System.EventHandler(this.FindCheckBox_CheckedChanged);
+            // 
             // FormOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 247);
+            this.ClientSize = new System.Drawing.Size(980, 300);
+            this.Controls.Add(this.FindCheckBox);
             this.Controls.Add(this.orderDataGridView);
             this.Controls.Add(this.orderBindingNavigator);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -354,5 +393,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costPriceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn profitDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripTextBox FindToolStripTextBox;
+        private System.Windows.Forms.ToolStripButton FindToolStripButton;
+        private System.Windows.Forms.CheckBox FindCheckBox;
     }
 }

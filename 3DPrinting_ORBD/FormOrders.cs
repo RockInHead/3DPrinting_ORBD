@@ -44,8 +44,77 @@ namespace _3DPrinting_ORBD
             e.Cancel = true;
         }
 
-        private void orderBindingNavigator_RefreshItems(object sender, EventArgs e)
+        string GetSelectedFieldName()
         {
+            return orderDataGridView.Columns[orderDataGridView.CurrentCell.ColumnIndex].DataPropertyName;
+        }
+
+        private void FindToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (FindToolStripTextBox.Text == "")
+            {
+                MessageBox.Show(
+                    "Вы ничего не задали",
+                    "Внимание",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                return;
+            }
+
+            int indexPos;
+            try
+            {
+                indexPos =
+                    orderBindingSource.Find(
+                        GetSelectedFieldName(),
+                        FindToolStripTextBox.Text);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ошибка поиска \n" + err.Message);
+                return;
+            }
+
+            if (indexPos > -1)
+                orderBindingSource.Position = indexPos;
+            else
+            {
+                MessageBox.Show(
+                    "Таких заказов нет",
+                    "Внимание",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+                orderBindingSource.Position = 0;
+            }
+        }
+
+        private void FindCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FindCheckBox.Checked)
+            {
+                if (FindToolStripTextBox.Text == "")
+                    MessageBox.Show("Вы ничего не задали", "Внимание",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    try
+                    {
+                        orderBindingSource.Filter =
+                            GetSelectedFieldName() + "='" + FindToolStripTextBox.Text + "'";
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show("Ошибка фильтрации \n" +
+                                        err.Message);
+                    }
+            }
+            else
+                orderBindingSource.Filter = "";
+            if (orderBindingSource.Count == 0)
+            {
+                MessageBox.Show("Нет таких");
+                orderBindingSource.Filter = "";
+                FindCheckBox.Checked = false;
+            }
 
         }
     }

@@ -139,5 +139,15 @@ namespace _3DPrinting_ORBD.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchmagnifierinterfacesymbol1_79893 {
+            get {
+                object obj = ResourceManager.GetObject("searchmagnifierinterfacesymbol1_79893", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
