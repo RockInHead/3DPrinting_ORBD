@@ -55,11 +55,6 @@ namespace _3DPrinting_ORBD
             FinishedDetailsForm.fd.ShowForm();
         }
 
-        private void заказыКлиентовToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OrdersListForm.olf.ShowForm();
-        }
-
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Settings.Default.Save();
