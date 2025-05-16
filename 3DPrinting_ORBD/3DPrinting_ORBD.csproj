@@ -169,7 +169,7 @@
     <None Include="Resources\Menu_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\searchmagnifierinterfacesymbol1_79893.png" />
+    <None Include="Resources\Magnifier_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
