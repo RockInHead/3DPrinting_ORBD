@@ -58,6 +58,12 @@
     <Compile Include="FinishedDetailsForm.Designer.cs">
       <DependentUpon>FinishedDetailsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FinishedDetailsListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FinishedDetailsListForm.Designer.cs">
+      <DependentUpon>FinishedDetailsListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FinishedDetailsForm.resx">
       <DependentUpon>FinishedDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FinishedDetailsListForm.resx">
+      <DependentUpon>FinishedDetailsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOrders.resx">
       <DependentUpon>FormOrders.cs</DependentUpon>

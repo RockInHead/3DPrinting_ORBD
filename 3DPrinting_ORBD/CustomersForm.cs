@@ -45,6 +45,8 @@ namespace _3DPrinting_ORBD
         }
         public void ShowForm()
         {
+            OkToolStripButton.Visible = false;
+            customerBindingSource.Position = 0;
             Show();
             Activate();
         }
@@ -77,20 +79,7 @@ namespace _3DPrinting_ORBD
 
         private void CustomersForm_Shown(object sender, EventArgs e)
         {
-            // Правильный способ найти запись и установить позицию
-            if (customerBindingSource.DataSource != null)
-            {
-                // Для DataTable/DataView
-                if (customerBindingSource.DataSource is DataTable dataTable)
-                {
-                    DataRow[] foundRows = dataTable.Select($"CustomerID = {idCurrent}");
-                    if (foundRows.Length > 0)
-                    {
-                        customerBindingSource.Position =
-                            customerBindingSource.IndexOf(foundRows[0]);
-                    }
-                }
-            }
+            customerBindingSource.Position = customerBindingSource.Find("CustomerID", idCurrent);
         }
     }
 }

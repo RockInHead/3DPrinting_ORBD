@@ -65,6 +65,9 @@ namespace _3DPrinting_ORBD
             Settings.Default.Save();
         }
 
-
+        private void готовыеДеталиToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FinishedDetailsListForm.fdlf.ShowForm();
+        }
     }
 }
