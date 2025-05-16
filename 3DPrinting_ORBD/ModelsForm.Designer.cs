@@ -40,11 +40,18 @@
             this._3DModelTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters._3DModelTableAdapter();
             this.tableAdapterManager = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager();
             this._3DModelBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this._3DModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.modelIDTextBox = new System.Windows.Forms.TextBox();
             this.orderIDTextBox = new System.Windows.Forms.TextBox();
             this.dimensionsTextBox = new System.Windows.Forms.TextBox();
@@ -52,13 +59,6 @@
             this.buttonOpenPhoto = new System.Windows.Forms.Button();
             this.openFileDialogPhoto = new System.Windows.Forms.OpenFileDialog();
             this.sreenshotPictureBox = new System.Windows.Forms.PictureBox();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this._3DModelBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             modelIDLabel = new System.Windows.Forms.Label();
             orderIDLabel = new System.Windows.Forms.Label();
             sreenshotLabel = new System.Windows.Forms.Label();
@@ -74,45 +74,50 @@
             // modelIDLabel
             // 
             modelIDLabel.AutoSize = true;
-            modelIDLabel.Location = new System.Drawing.Point(34, 56);
+            modelIDLabel.Location = new System.Drawing.Point(45, 69);
+            modelIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             modelIDLabel.Name = "modelIDLabel";
-            modelIDLabel.Size = new System.Drawing.Size(53, 13);
+            modelIDLabel.Size = new System.Drawing.Size(64, 16);
             modelIDLabel.TabIndex = 1;
             modelIDLabel.Text = "Model ID:";
             // 
             // orderIDLabel
             // 
             orderIDLabel.AutoSize = true;
-            orderIDLabel.Location = new System.Drawing.Point(37, 92);
+            orderIDLabel.Location = new System.Drawing.Point(49, 113);
+            orderIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             orderIDLabel.Name = "orderIDLabel";
-            orderIDLabel.Size = new System.Drawing.Size(50, 13);
+            orderIDLabel.Size = new System.Drawing.Size(60, 16);
             orderIDLabel.TabIndex = 3;
             orderIDLabel.Text = "Order ID:";
             // 
             // sreenshotLabel
             // 
             sreenshotLabel.AutoSize = true;
-            sreenshotLabel.Location = new System.Drawing.Point(306, 25);
+            sreenshotLabel.Location = new System.Drawing.Point(408, 31);
+            sreenshotLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             sreenshotLabel.Name = "sreenshotLabel";
-            sreenshotLabel.Size = new System.Drawing.Size(98, 13);
+            sreenshotLabel.Size = new System.Drawing.Size(123, 16);
             sreenshotLabel.TabIndex = 5;
             sreenshotLabel.Text = "Скриншот модели";
             // 
             // dimensionsLabel
             // 
             dimensionsLabel.AutoSize = true;
-            dimensionsLabel.Location = new System.Drawing.Point(42, 174);
+            dimensionsLabel.Location = new System.Drawing.Point(56, 214);
+            dimensionsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             dimensionsLabel.Name = "dimensionsLabel";
-            dimensionsLabel.Size = new System.Drawing.Size(57, 13);
+            dimensionsLabel.Size = new System.Drawing.Size(69, 16);
             dimensionsLabel.TabIndex = 7;
             dimensionsLabel.Text = "Размеры:";
             // 
             // fileFormatLabel
             // 
             fileFormatLabel.AutoSize = true;
-            fileFormatLabel.Location = new System.Drawing.Point(12, 134);
+            fileFormatLabel.Location = new System.Drawing.Point(16, 165);
+            fileFormatLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             fileFormatLabel.Name = "fileFormatLabel";
-            fileFormatLabel.Size = new System.Drawing.Size(87, 13);
+            fileFormatLabel.Size = new System.Drawing.Size(107, 16);
             fileFormatLabel.TabIndex = 9;
             fileFormatLabel.Text = "Формат файла:";
             // 
@@ -145,6 +150,7 @@
             this._3DModelBindingNavigator.BindingSource = this._3DModelBindingSource;
             this._3DModelBindingNavigator.CountItem = this.bindingNavigatorCountItem;
             this._3DModelBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this._3DModelBindingNavigator.ImageScalingSize = new System.Drawing.Size(20, 20);
             this._3DModelBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -165,21 +171,57 @@
             this._3DModelBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this._3DModelBindingNavigator.Name = "_3DModelBindingNavigator";
             this._3DModelBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this._3DModelBindingNavigator.Size = new System.Drawing.Size(571, 25);
+            this._3DModelBindingNavigator.Size = new System.Drawing.Size(761, 31);
             this._3DModelBindingNavigator.TabIndex = 0;
             this._3DModelBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Text = "Добавить";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(55, 28);
             this.bindingNavigatorCountItem.Text = "для {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Text = "Удалить";
+            // 
+            // bindingNavigatorMoveFirstItem
+            // 
+            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
+            // 
+            // bindingNavigatorMovePreviousItem
+            // 
+            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -187,58 +229,90 @@
             this.bindingNavigatorPositionItem.AutoSize = false;
             this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(65, 27);
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
             // 
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            // 
+            // bindingNavigatorMoveNextItem
+            // 
+            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
+            // 
+            // bindingNavigatorMoveLastItem
+            // 
+            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            // 
+            // _3DModelBindingNavigatorSaveItem
+            // 
+            this._3DModelBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this._3DModelBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("_3DModelBindingNavigatorSaveItem.Image")));
+            this._3DModelBindingNavigatorSaveItem.Name = "_3DModelBindingNavigatorSaveItem";
+            this._3DModelBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
+            this._3DModelBindingNavigatorSaveItem.Text = "Сохранить данные";
+            this._3DModelBindingNavigatorSaveItem.Click += new System.EventHandler(this._3DModelBindingNavigatorSaveItem_Click);
             // 
             // modelIDTextBox
             // 
             this.modelIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "ModelID", true));
-            this.modelIDTextBox.Location = new System.Drawing.Point(107, 53);
+            this.modelIDTextBox.Location = new System.Drawing.Point(143, 65);
+            this.modelIDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.modelIDTextBox.Name = "modelIDTextBox";
-            this.modelIDTextBox.Size = new System.Drawing.Size(72, 20);
+            this.modelIDTextBox.Size = new System.Drawing.Size(95, 22);
             this.modelIDTextBox.TabIndex = 2;
             // 
             // orderIDTextBox
             // 
             this.orderIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "OrderID", true));
-            this.orderIDTextBox.Location = new System.Drawing.Point(107, 89);
+            this.orderIDTextBox.Location = new System.Drawing.Point(143, 110);
+            this.orderIDTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.orderIDTextBox.Name = "orderIDTextBox";
-            this.orderIDTextBox.Size = new System.Drawing.Size(72, 20);
+            this.orderIDTextBox.Size = new System.Drawing.Size(95, 22);
             this.orderIDTextBox.TabIndex = 4;
             // 
             // dimensionsTextBox
             // 
             this.dimensionsTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "Dimensions", true));
-            this.dimensionsTextBox.Location = new System.Drawing.Point(107, 174);
+            this.dimensionsTextBox.Location = new System.Drawing.Point(143, 214);
+            this.dimensionsTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dimensionsTextBox.Multiline = true;
             this.dimensionsTextBox.Name = "dimensionsTextBox";
-            this.dimensionsTextBox.Size = new System.Drawing.Size(153, 59);
+            this.dimensionsTextBox.Size = new System.Drawing.Size(203, 72);
             this.dimensionsTextBox.TabIndex = 8;
             // 
             // fileFormatTextBox
             // 
             this.fileFormatTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this._3DModelBindingSource, "FileFormat", true));
-            this.fileFormatTextBox.Location = new System.Drawing.Point(107, 127);
+            this.fileFormatTextBox.Location = new System.Drawing.Point(143, 156);
+            this.fileFormatTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.fileFormatTextBox.Name = "fileFormatTextBox";
-            this.fileFormatTextBox.Size = new System.Drawing.Size(72, 20);
+            this.fileFormatTextBox.Size = new System.Drawing.Size(95, 22);
             this.fileFormatTextBox.TabIndex = 10;
             // 
             // buttonOpenPhoto
             // 
-            this.buttonOpenPhoto.Location = new System.Drawing.Point(441, 239);
+            this.buttonOpenPhoto.Location = new System.Drawing.Point(588, 294);
+            this.buttonOpenPhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonOpenPhoto.Name = "buttonOpenPhoto";
-            this.buttonOpenPhoto.Size = new System.Drawing.Size(105, 26);
+            this.buttonOpenPhoto.Size = new System.Drawing.Size(140, 32);
             this.buttonOpenPhoto.TabIndex = 11;
             this.buttonOpenPhoto.Text = "Открыть фото";
             this.buttonOpenPhoto.UseVisualStyleBackColor = true;
@@ -251,81 +325,19 @@
             // sreenshotPictureBox
             // 
             this.sreenshotPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this._3DModelBindingSource, "Sreenshot", true));
-            this.sreenshotPictureBox.Location = new System.Drawing.Point(309, 56);
+            this.sreenshotPictureBox.Location = new System.Drawing.Point(412, 69);
+            this.sreenshotPictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sreenshotPictureBox.Name = "sreenshotPictureBox";
-            this.sreenshotPictureBox.Size = new System.Drawing.Size(237, 177);
+            this.sreenshotPictureBox.Size = new System.Drawing.Size(316, 218);
             this.sreenshotPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.sreenshotPictureBox.TabIndex = 6;
             this.sreenshotPictureBox.TabStop = false;
             // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Удалить";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
-            // 
-            // _3DModelBindingNavigatorSaveItem
-            // 
-            this._3DModelBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this._3DModelBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("_3DModelBindingNavigatorSaveItem.Image")));
-            this._3DModelBindingNavigatorSaveItem.Name = "_3DModelBindingNavigatorSaveItem";
-            this._3DModelBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this._3DModelBindingNavigatorSaveItem.Text = "Сохранить данные";
-            this._3DModelBindingNavigatorSaveItem.Click += new System.EventHandler(this._3DModelBindingNavigatorSaveItem_Click);
-            // 
             // ModelsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(571, 291);
+            this.ClientSize = new System.Drawing.Size(761, 358);
             this.Controls.Add(this.buttonOpenPhoto);
             this.Controls.Add(modelIDLabel);
             this.Controls.Add(this.modelIDTextBox);
@@ -339,6 +351,7 @@
             this.Controls.Add(this.fileFormatTextBox);
             this.Controls.Add(this._3DModelBindingNavigator);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ModelsForm";
             this.Text = "3D-модели";
             this.Load += new System.EventHandler(this.ModelsForm_Load);

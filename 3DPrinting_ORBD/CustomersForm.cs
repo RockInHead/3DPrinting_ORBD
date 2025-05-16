@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace _3DPrinting_ORBD
@@ -46,6 +47,50 @@ namespace _3DPrinting_ORBD
         {
             Show();
             Activate();
+        }
+
+        private void OkToolStripButton_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
+        }
+
+        int idCurrent = -1;
+        public int ShowSelectForm(int id)
+        {
+            OkToolStripButton.Visible = true;
+            idCurrent = id;
+            if (ShowDialog() == DialogResult.OK)
+            {
+                // Получаем текущую запись через BindingSource
+                if (customerBindingSource.Current != null)
+                {
+                    DataRowView rowView = customerBindingSource.Current as DataRowView;
+                    if (rowView != null && rowView.Row.Table.Columns.Contains("CustomerID"))
+                    {
+                        return Convert.ToInt32(rowView["CustomerID"]);
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        private void CustomersForm_Shown(object sender, EventArgs e)
+        {
+            // Правильный способ найти запись и установить позицию
+            if (customerBindingSource.DataSource != null)
+            {
+                // Для DataTable/DataView
+                if (customerBindingSource.DataSource is DataTable dataTable)
+                {
+                    DataRow[] foundRows = dataTable.Select($"CustomerID = {idCurrent}");
+                    if (foundRows.Length > 0)
+                    {
+                        customerBindingSource.Position =
+                            customerBindingSource.IndexOf(foundRows[0]);
+                    }
+                }
+            }
         }
     }
 }
