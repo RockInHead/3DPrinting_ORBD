@@ -52,10 +52,6 @@
             this.FindToolStripTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.FindToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.orderDataGridView = new System.Windows.Forms.DataGridView();
-            this.orderTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.OrderTableAdapter();
-            this.tableAdapterManager = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager();
-            this.dPrintingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.FindCheckBox = new System.Windows.Forms.CheckBox();
             this.orderIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.deadlineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,6 +60,10 @@
             this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.costPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.OrderTableAdapter();
+            this.tableAdapterManager = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager();
+            this.dPrintingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.FindCheckBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingNavigator)).BeginInit();
             this.orderBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
@@ -102,7 +102,7 @@
             this.orderBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.orderBindingNavigator.Name = "orderBindingNavigator";
             this.orderBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.orderBindingNavigator.Size = new System.Drawing.Size(980, 27);
+            this.orderBindingNavigator.Size = new System.Drawing.Size(980, 31);
             this.orderBindingNavigator.TabIndex = 0;
             this.orderBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -112,7 +112,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
             // 
             // orderBindingSource
@@ -128,7 +128,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(55, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(55, 28);
             this.bindingNavigatorCountItem.Text = "для {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
             // 
@@ -138,7 +138,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorDeleteItem.Text = "Удалить";
             // 
             // bindingNavigatorMoveFirstItem
@@ -147,7 +147,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
             // 
             // bindingNavigatorMovePreviousItem
@@ -156,13 +156,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -177,7 +177,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -185,7 +185,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
             // 
             // bindingNavigatorMoveLastItem
@@ -194,33 +194,33 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // orderBindingNavigatorSaveItem
             // 
             this.orderBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.orderBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("orderBindingNavigatorSaveItem.Image")));
             this.orderBindingNavigatorSaveItem.Name = "orderBindingNavigatorSaveItem";
-            this.orderBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 24);
+            this.orderBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 28);
             this.orderBindingNavigatorSaveItem.Text = "Сохранить данные";
             this.orderBindingNavigatorSaveItem.Click += new System.EventHandler(this.orderBindingNavigatorSaveItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // FindToolStripTextBox
             // 
             this.FindToolStripTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.FindToolStripTextBox.Name = "FindToolStripTextBox";
-            this.FindToolStripTextBox.Size = new System.Drawing.Size(100, 27);
+            this.FindToolStripTextBox.Size = new System.Drawing.Size(100, 31);
             // 
             // FindToolStripButton
             // 
@@ -228,7 +228,7 @@
             this.FindToolStripButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.FindToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.FindToolStripButton.Name = "FindToolStripButton";
-            this.FindToolStripButton.Size = new System.Drawing.Size(76, 24);
+            this.FindToolStripButton.Size = new System.Drawing.Size(76, 28);
             this.FindToolStripButton.Text = "Поиск";
             this.FindToolStripButton.Click += new System.EventHandler(this.FindToolStripButton_Click);
             // 
@@ -247,41 +247,12 @@
             this.profitDataGridViewTextBoxColumn});
             this.orderDataGridView.DataSource = this.orderBindingSource;
             this.orderDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.orderDataGridView.Location = new System.Drawing.Point(0, 27);
+            this.orderDataGridView.Location = new System.Drawing.Point(0, 31);
             this.orderDataGridView.Name = "orderDataGridView";
             this.orderDataGridView.RowHeadersWidth = 51;
-            this.orderDataGridView.Size = new System.Drawing.Size(980, 273);
+            this.orderDataGridView.Size = new System.Drawing.Size(980, 269);
             this.orderDataGridView.TabIndex = 1;
             this.orderDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.orderDataGridView_DataError);
-            // 
-            // orderTableAdapter
-            // 
-            this.orderTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager._3DModelTableAdapter = null;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CustomerTableAdapter = null;
-            this.tableAdapterManager.FinishedDetailTableAdapter = null;
-            this.tableAdapterManager.OrderTableAdapter = this.orderTableAdapter;
-            this.tableAdapterManager.UpdateOrder = _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // dPrintingDataSetBindingSource
-            // 
-            this.dPrintingDataSetBindingSource.DataSource = this._3D_PrintingDataSet;
-            this.dPrintingDataSetBindingSource.Position = 0;
-            // 
-            // FindCheckBox
-            // 
-            this.FindCheckBox.AutoSize = true;
-            this.FindCheckBox.Location = new System.Drawing.Point(462, 2);
-            this.FindCheckBox.Name = "FindCheckBox";
-            this.FindCheckBox.Size = new System.Drawing.Size(75, 19);
-            this.FindCheckBox.TabIndex = 2;
-            this.FindCheckBox.Text = "Фильтр";
-            this.FindCheckBox.UseVisualStyleBackColor = true;
-            this.FindCheckBox.CheckedChanged += new System.EventHandler(this.FindCheckBox_CheckedChanged);
             // 
             // orderIDDataGridViewTextBoxColumn
             // 
@@ -370,6 +341,35 @@
             this.profitDataGridViewTextBoxColumn.Name = "profitDataGridViewTextBoxColumn";
             this.profitDataGridViewTextBoxColumn.ReadOnly = true;
             this.profitDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // orderTableAdapter
+            // 
+            this.orderTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager._3DModelTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CustomerTableAdapter = null;
+            this.tableAdapterManager.FinishedDetailTableAdapter = null;
+            this.tableAdapterManager.OrderTableAdapter = this.orderTableAdapter;
+            this.tableAdapterManager.UpdateOrder = _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // dPrintingDataSetBindingSource
+            // 
+            this.dPrintingDataSetBindingSource.DataSource = this._3D_PrintingDataSet;
+            this.dPrintingDataSetBindingSource.Position = 0;
+            // 
+            // FindCheckBox
+            // 
+            this.FindCheckBox.AutoSize = true;
+            this.FindCheckBox.Location = new System.Drawing.Point(462, 2);
+            this.FindCheckBox.Name = "FindCheckBox";
+            this.FindCheckBox.Size = new System.Drawing.Size(75, 19);
+            this.FindCheckBox.TabIndex = 2;
+            this.FindCheckBox.Text = "Фильтр";
+            this.FindCheckBox.UseVisualStyleBackColor = true;
+            this.FindCheckBox.CheckedChanged += new System.EventHandler(this.FindCheckBox_CheckedChanged);
             // 
             // FormOrders
             // 

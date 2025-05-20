@@ -3777,46 +3777,94 @@ SELECT FInishedDetailID, OrderID, ModelID, DateOfManufacture, DetailStatus FROM 
             tableMapping.ColumnMappings.Add("CostPrice", "CostPrice");
             tableMapping.ColumnMappings.Add("Plastic", "Plastic");
             tableMapping.ColumnMappings.Add("OrderStatus", "OrderStatus");
-            tableMapping.ColumnMappings.Add("Profit", "Profit");
+            /*tableMapping.ColumnMappings.Add("Profit", "Profit");*/ //тут тут тут
             tableMapping.ColumnMappings.Add("Deadline", "Deadline");
             tableMapping.ColumnMappings.Add("Cost", "Cost");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Order] WHERE (([OrderID] = @Original_OrderID) AND ([CustomerID] = @Original_CustomerID) AND ([CostPrice] = @Original_CostPrice) AND ([Plastic] = @Original_Plastic) AND ([OrderStatus] = @Original_OrderStatus) AND ([Profit] = @Original_Profit) AND ([Deadline] = @Original_Deadline) AND ([Cost] = @Original_Cost))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Order] 
+WHERE 
+    ([OrderID] = @Original_OrderID) 
+    AND ([CustomerID] = @Original_CustomerID) 
+    AND ([CostPrice] = @Original_CostPrice) 
+    AND ([Plastic] = @Original_Plastic) 
+    AND ([OrderStatus] = @Original_OrderStatus) 
+    /* УДАЛЕНО: AND ([Profit] = @Original_Profit) */
+    AND ([Deadline] = @Original_Deadline) 
+    AND ([Cost] = @Original_Cost)";
+            /*this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Order] WHERE (([OrderID] = @Original_OrderID) AND ([CustomerID] = @Original_CustomerID) AND ([CostPrice] = @Original_CostPrice) AND ([Plastic] = @Original_Plastic) AND ([OrderStatus] = @Original_OrderStatus) AND ([Profit] = @Original_Profit) AND ([Deadline] = @Original_Deadline) AND ([Cost] = @Original_Cost))";*/
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CostPrice", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CostPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plastic", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plastic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            //this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Deadline", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deadline", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cost", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Order] ([OrderID], [CustomerID], [CostPrice], [Plastic], [OrderStatus], [Profit], [Deadline], [Cost]) VALUES (@OrderID, @CustomerID, @CostPrice, @Plastic, @OrderStatus, @Profit, @Deadline, @Cost);
-SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, Cost FROM [Order] WHERE (OrderID = @OrderID)";
+            this._adapter.InsertCommand.CommandText = @"
+INSERT INTO [dbo].[Order] 
+    ([OrderID], [CustomerID], [CostPrice], [Plastic], [OrderStatus], [Deadline], [Cost]) 
+VALUES 
+    (@OrderID, @CustomerID, @CostPrice, @Plastic, @OrderStatus, @Deadline, @Cost);
+    
+SELECT 
+    OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Deadline, Cost 
+FROM 
+    [Order] 
+WHERE 
+    (OrderID = @OrderID)";
+            /*this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Order] ([OrderID], [CustomerID], [CostPrice], [Plastic], [OrderStatus], [Profit], [Deadline], [Cost]) VALUES (@OrderID, @CustomerID, @CostPrice, @Plastic, @OrderStatus, @Profit, @Deadline, @Cost);
+SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, Cost FROM [Order] WHERE (OrderID = @OrderID)";*/
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPrice", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CostPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plastic", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plastic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+           // this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Deadline", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deadline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cost", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Order] SET [OrderID] = @OrderID, [CustomerID] = @CustomerID, [CostPrice] = @CostPrice, [Plastic] = @Plastic, [OrderStatus] = @OrderStatus, [Profit] = @Profit, [Deadline] = @Deadline, [Cost] = @Cost WHERE (([OrderID] = @Original_OrderID) AND ([CustomerID] = @Original_CustomerID) AND ([CostPrice] = @Original_CostPrice) AND ([Plastic] = @Original_Plastic) AND ([OrderStatus] = @Original_OrderStatus) AND ([Profit] = @Original_Profit) AND ([Deadline] = @Original_Deadline) AND ([Cost] = @Original_Cost));
-SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, Cost FROM [Order] WHERE (OrderID = @OrderID)";
+            this._adapter.UpdateCommand.CommandText = @"
+UPDATE [dbo].[Order] 
+SET 
+    [OrderID] = @OrderID,
+    [CustomerID] = @CustomerID,
+    [CostPrice] = @CostPrice,
+    [Plastic] = @Plastic,
+    [OrderStatus] = @OrderStatus,
+    [Deadline] = @Deadline,
+    [Cost] = @Cost
+WHERE 
+    ([OrderID] = @Original_OrderID) 
+    AND ([CustomerID] = @Original_CustomerID) 
+    AND ([CostPrice] = @Original_CostPrice) 
+    AND ([Plastic] = @Original_Plastic) 
+    AND ([OrderStatus] = @Original_OrderStatus) 
+    /* УДАЛЕНО: AND ([Profit] = @Original_Profit) */
+    AND ([Deadline] = @Original_Deadline) 
+    AND ([Cost] = @Original_Cost);
+
+SELECT 
+    OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Deadline, Cost 
+FROM 
+    [Order] 
+WHERE 
+    (OrderID = @OrderID)";
+            /*this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Order] SET [OrderID] = @OrderID, [CustomerID] = @CustomerID, [CostPrice] = @CostPrice, [Plastic] = @Plastic, [OrderStatus] = @OrderStatus, [Profit] = @Profit, [Deadline] = @Deadline, [Cost] = @Cost WHERE (([OrderID] = @Original_OrderID) AND ([CustomerID] = @Original_CustomerID) AND ([CostPrice] = @Original_CostPrice) AND ([Plastic] = @Original_Plastic) AND ([OrderStatus] = @Original_OrderStatus) AND ([Profit] = @Original_Profit) AND ([Deadline] = @Original_Deadline) AND ([Cost] = @Original_Cost));
+SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, Cost FROM [Order] WHERE (OrderID = @OrderID)";*/
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CostPrice", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CostPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Plastic", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plastic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@OrderStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+           // this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Deadline", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deadline", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cost", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3824,7 +3872,7 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CostPrice", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CostPrice", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Plastic", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Plastic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_OrderStatus", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "OrderStatus", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            //this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Profit", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Profit", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Deadline", global::System.Data.SqlDbType.SmallDateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Deadline", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Cost", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cost", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }

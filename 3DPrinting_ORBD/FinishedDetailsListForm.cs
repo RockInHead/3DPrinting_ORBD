@@ -21,7 +21,20 @@ namespace _3DPrinting_ORBD
         {
             this.Validate();
             this.orderBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this._3D_PrintingDataSet);
+
+            try
+            {
+                // Сохраняем изменения (без Profit)
+                this.tableAdapterManager.UpdateAll(this._3D_PrintingDataSet);
+
+                // Перезагружаем данные, чтобы Profit пересчитался
+                this.orderTableAdapter.Fill(this._3D_PrintingDataSet.Order);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
