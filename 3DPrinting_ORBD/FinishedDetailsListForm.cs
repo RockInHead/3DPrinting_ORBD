@@ -148,5 +148,35 @@ namespace _3DPrinting_ORBD
                 e.CellStyle.BackColor = Color.Pink;
             }
         }
+
+
+        string GetSelectedFieldName()
+        {
+            return
+                finishedDetailDataGridView.Columns[finishedDetailDataGridView.CurrentCell.ColumnIndex].DataPropertyName;
+        }
+
+        private void finishedDetailDataGridView_CellClick(
+            object sender,
+            DataGridViewCellEventArgs e)
+        {
+            if (String.Compare(GetSelectedFieldName(), "О_моделе", false) == 0)
+            {
+                decimal price = 0;
+                int idDishCurrent = -1;
+
+                int.TryParse((((DataRowView) finishedDetailBindingSource.Current)["ModelID"]).ToString(), out idDishCurrent);
+                int idDish = ModelsForm.md.ShowSelectForm(
+                    idDishCurrent,
+                    out price);
+                MessageBox.Show("ModelID=" + idDish.ToString());
+                ((DataRowView)finishedDetailBindingSource.Current)["ModelID"] =
+                    idDish;
+                ((DataRowView)finishedDetailBindingSource.Current)["ModelID"] = price;
+                finishedDetailBindingSource.EndEdit();
+                finishedDetailTableAdapter.Update(this._3D_PrintingDataSet);
+                _3DModelTableAdapter.Fill(this._3D_PrintingDataSet._3DModel);
+            }
+        }
     }
 }

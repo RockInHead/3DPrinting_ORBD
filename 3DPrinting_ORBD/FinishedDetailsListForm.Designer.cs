@@ -39,7 +39,7 @@
             System.Windows.Forms.Label orderStatusLabel1;
             System.Windows.Forms.Label customerLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FinishedDetailsListForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this._3D_PrintingDataSet = new _3DPrinting_ORBD._3D_PrintingDataSet();
             this.orderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.orderTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.OrderTableAdapter();
@@ -81,17 +81,17 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.SaveItemtoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.finishedDetailDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.О_моделе = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataGridViewCheckBoxColumnDetailStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.orderStatusComboBox = new System.Windows.Forms.ComboBox();
             this.CustomerButton = new System.Windows.Forms.Button();
             this.customerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters.CustomerTableAdapter();
             this.customerLabel1 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.О_моделе = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataGridViewCheckBoxColumnDetailStatus = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this._3DModelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this._3DModelTableAdapter = new _3DPrinting_ORBD._3D_PrintingDataSetTableAdapters._3DModelTableAdapter();
             orderIDLabel = new System.Windows.Forms.Label();
@@ -592,8 +592,63 @@
             this.finishedDetailDataGridView.RowTemplate.Height = 24;
             this.finishedDetailDataGridView.Size = new System.Drawing.Size(564, 236);
             this.finishedDetailDataGridView.TabIndex = 0;
+            this.finishedDetailDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.finishedDetailDataGridView_CellClick);
             this.finishedDetailDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.finishedDetailDataGridView_CellFormatting);
             this.finishedDetailDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.finishedDetailDataGridView_DataError);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "FInishedDetailID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "FInishedDetailID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "OrderID";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "ModelID";
+            this.dataGridViewTextBoxColumn3.HeaderText = "ModelID";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // О_моделе
+            // 
+            this.О_моделе.DataPropertyName = "О_моделе";
+            this.О_моделе.HeaderText = "О_моделе";
+            this.О_моделе.MinimumWidth = 6;
+            this.О_моделе.Name = "О_моделе";
+            this.О_моделе.ReadOnly = true;
+            this.О_моделе.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.О_моделе.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.О_моделе.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "DateOfManufacture";
+            dataGridViewCellStyle3.Format = "D";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Дата изготовления";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // DataGridViewCheckBoxColumnDetailStatus
+            // 
+            this.DataGridViewCheckBoxColumnDetailStatus.DataPropertyName = "DetailStatus";
+            this.DataGridViewCheckBoxColumnDetailStatus.HeaderText = "Деталь готова?";
+            this.DataGridViewCheckBoxColumnDetailStatus.MinimumWidth = 6;
+            this.DataGridViewCheckBoxColumnDetailStatus.Name = "DataGridViewCheckBoxColumnDetailStatus";
+            this.DataGridViewCheckBoxColumnDetailStatus.Width = 125;
             // 
             // orderStatusComboBox
             // 
@@ -639,58 +694,6 @@
             this.customerLabel1.Size = new System.Drawing.Size(75, 19);
             this.customerLabel1.TabIndex = 22;
             this.customerLabel1.Text = "label1";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "FInishedDetailID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "FInishedDetailID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "OrderID";
-            this.dataGridViewTextBoxColumn2.HeaderText = "OrderID";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "ModelID";
-            this.dataGridViewTextBoxColumn3.HeaderText = "ModelID";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // О_моделе
-            // 
-            this.О_моделе.DataPropertyName = "О_моделе";
-            this.О_моделе.HeaderText = "О_моделе";
-            this.О_моделе.MinimumWidth = 6;
-            this.О_моделе.Name = "О_моделе";
-            this.О_моделе.ReadOnly = true;
-            this.О_моделе.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "DateOfManufacture";
-            dataGridViewCellStyle4.Format = "D";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Дата изготовления";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // DataGridViewCheckBoxColumnDetailStatus
-            // 
-            this.DataGridViewCheckBoxColumnDetailStatus.DataPropertyName = "DetailStatus";
-            this.DataGridViewCheckBoxColumnDetailStatus.HeaderText = "Деталь готова?";
-            this.DataGridViewCheckBoxColumnDetailStatus.MinimumWidth = 6;
-            this.DataGridViewCheckBoxColumnDetailStatus.Name = "DataGridViewCheckBoxColumnDetailStatus";
-            this.DataGridViewCheckBoxColumnDetailStatus.Width = 125;
             // 
             // _3DModelBindingSource
             // 
@@ -798,13 +801,13 @@
         private System.Windows.Forms.BindingSource customerBindingSource;
         private _3D_PrintingDataSetTableAdapters.CustomerTableAdapter customerTableAdapter;
         private System.Windows.Forms.Label customerLabel1;
+        private System.Windows.Forms.BindingSource _3DModelBindingSource;
+        private _3D_PrintingDataSetTableAdapters._3DModelTableAdapter _3DModelTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn О_моделе;
+        private System.Windows.Forms.DataGridViewButtonColumn О_моделе;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DataGridViewCheckBoxColumnDetailStatus;
-        private System.Windows.Forms.BindingSource _3DModelBindingSource;
-        private _3D_PrintingDataSetTableAdapters._3DModelTableAdapter _3DModelTableAdapter;
     }
 }

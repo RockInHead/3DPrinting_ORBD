@@ -87,7 +87,7 @@
             this.customerBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.customerBindingNavigator.Name = "customerBindingNavigator";
             this.customerBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customerBindingNavigator.Size = new System.Drawing.Size(646, 27);
+            this.customerBindingNavigator.Size = new System.Drawing.Size(646, 31);
             this.customerBindingNavigator.TabIndex = 0;
             this.customerBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -97,7 +97,7 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorAddNewItem.Text = "Добавить";
             // 
             // bindingNavigatorCountItem
@@ -207,10 +207,10 @@
             this.dataGridViewTextBoxColumn3});
             this.customerDataGridView.DataSource = this.customerBindingSource;
             this.customerDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerDataGridView.Location = new System.Drawing.Point(0, 27);
+            this.customerDataGridView.Location = new System.Drawing.Point(0, 31);
             this.customerDataGridView.Name = "customerDataGridView";
             this.customerDataGridView.RowHeadersWidth = 51;
-            this.customerDataGridView.Size = new System.Drawing.Size(646, 225);
+            this.customerDataGridView.Size = new System.Drawing.Size(646, 221);
             this.customerDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1

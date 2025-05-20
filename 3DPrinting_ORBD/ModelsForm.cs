@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -60,8 +61,26 @@ namespace _3DPrinting_ORBD
         }
         public void ShowForm()
         {
+            _3DModelBindingSource.Position = 0;
             Show();
             Activate();
+        }
+
+        int idCurrent = -1;
+        public int ShowSelectForm(int idDish, out decimal price)
+        {
+            idCurrent = idDish;
+            ShowDialog();
+            price =
+                (int)((DataRowView)_3DModelBindingSource.Current)["ModelID"];
+            return
+                (int)((DataRowView)_3DModelBindingSource.Current)["ModelID"];
+        }
+
+        private void ModelsForm_Shown(object sender, EventArgs e)
+        {
+            _3DModelBindingSource.Position =
+                _3DModelBindingSource.Find("ModelID", idCurrent);
         }
     }
 }
