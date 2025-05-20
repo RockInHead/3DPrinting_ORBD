@@ -51,6 +51,7 @@ namespace _3DPrinting_ORBD {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -62,6 +63,9 @@ namespace _3DPrinting_ORBD {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -91,6 +95,7 @@ namespace _3DPrinting_ORBD {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -182,6 +187,7 @@ namespace _3DPrinting_ORBD {
         public override global::System.Data.DataSet Clone() {
             _3D_PrintingDataSet cln = ((_3D_PrintingDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -288,13 +294,13 @@ namespace _3DPrinting_ORBD {
             this.Namespace = "http://tempuri.org/_3D_PrintingDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.table3DModel = new _3DModelDataTable();
+            this.table3DModel = new _3DModelDataTable(false);
             base.Tables.Add(this.table3DModel);
             this.tableCustomer = new CustomerDataTable();
             base.Tables.Add(this.tableCustomer);
-            this.tableFinishedDetail = new FinishedDetailDataTable();
+            this.tableFinishedDetail = new FinishedDetailDataTable(false);
             base.Tables.Add(this.tableFinishedDetail);
-            this.tableOrder = new OrderDataTable();
+            this.tableOrder = new OrderDataTable(false);
             base.Tables.Add(this.tableOrder);
             this.relationFK_3DModel_Order = new global::System.Data.DataRelation("FK_3DModel_Order", new global::System.Data.DataColumn[] {
                         this.tableOrder.OrderIDColumn}, new global::System.Data.DataColumn[] {
@@ -393,6 +399,14 @@ namespace _3DPrinting_ORBD {
             return type;
         }
         
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitExpressions() {
+            this._3DModel.InfoColumn.Expression = "ModelID+\' \'+Dimensions+\' \'+FileFormat";
+            this.FinishedDetail.О_моделеColumn.Expression = "Parent(FK_FinishedDetail_3DModel).Info";
+            this.Order.CustomerColumn.Expression = "Parent(FK_Order_Customer).FIO";
+        }
+        
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void _3DModelRowChangeEventHandler(object sender, _3DModelRowChangeEvent e);
         
@@ -422,12 +436,23 @@ namespace _3DPrinting_ORBD {
             
             private global::System.Data.DataColumn columnFileFormat;
             
+            private global::System.Data.DataColumn columnInfo;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public _3DModelDataTable() {
+            public _3DModelDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public _3DModelDataTable(bool initExpressions) {
                 this.TableName = "3DModel";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -497,6 +522,14 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn InfoColumn {
+                get {
+                    return this.columnInfo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -532,6 +565,25 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public _3DModelRow Add_3DModelRow(int ModelID, OrderRow parentOrderRowByFK_3DModel_Order, byte[] Sreenshot, string Dimensions, string FileFormat, string Info) {
+                _3DModelRow row_3DModelRow = ((_3DModelRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        ModelID,
+                        null,
+                        Sreenshot,
+                        Dimensions,
+                        FileFormat,
+                        Info};
+                if ((parentOrderRowByFK_3DModel_Order != null)) {
+                    columnValuesArray[1] = parentOrderRowByFK_3DModel_Order[0];
+                }
+                row_3DModelRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_3DModelRow);
+                return row_3DModelRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public _3DModelRow Add_3DModelRow(int ModelID, OrderRow parentOrderRowByFK_3DModel_Order, byte[] Sreenshot, string Dimensions, string FileFormat) {
                 _3DModelRow row_3DModelRow = ((_3DModelRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -539,7 +591,8 @@ namespace _3DPrinting_ORBD {
                         null,
                         Sreenshot,
                         Dimensions,
-                        FileFormat};
+                        FileFormat,
+                        null};
                 if ((parentOrderRowByFK_3DModel_Order != null)) {
                     columnValuesArray[1] = parentOrderRowByFK_3DModel_Order[0];
                 }
@@ -577,6 +630,7 @@ namespace _3DPrinting_ORBD {
                 this.columnSreenshot = base.Columns["Sreenshot"];
                 this.columnDimensions = base.Columns["Dimensions"];
                 this.columnFileFormat = base.Columns["FileFormat"];
+                this.columnInfo = base.Columns["Info"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -592,6 +646,8 @@ namespace _3DPrinting_ORBD {
                 base.Columns.Add(this.columnDimensions);
                 this.columnFileFormat = new global::System.Data.DataColumn("FileFormat", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFileFormat);
+                this.columnInfo = new global::System.Data.DataColumn("Info", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInfo);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnModelID}, true));
                 this.columnModelID.AllowDBNull = false;
@@ -599,6 +655,7 @@ namespace _3DPrinting_ORBD {
                 this.columnDimensions.MaxLength = 2147483647;
                 this.columnFileFormat.AllowDBNull = false;
                 this.columnFileFormat.MaxLength = 1073741823;
+                this.columnInfo.ReadOnly = true;
                 this.ExtendedProperties.Add("Generator_TableVarName", "table3DModel");
                 this.ExtendedProperties.Add("Generator_UserTableName", "3DModel");
             }
@@ -619,6 +676,12 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(_3DModelRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.InfoColumn.Expression = "ModelID+\' \'+Dimensions+\' \'+FileFormat";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1033,12 +1096,23 @@ namespace _3DPrinting_ORBD {
             
             private global::System.Data.DataColumn columnDetailStatus;
             
+            private global::System.Data.DataColumn columnО_моделе;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FinishedDetailDataTable() {
+            public FinishedDetailDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public FinishedDetailDataTable(bool initExpressions) {
                 this.TableName = "FinishedDetail";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1108,6 +1182,14 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn О_моделеColumn {
+                get {
+                    return this.columnО_моделе;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1143,6 +1225,28 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public FinishedDetailRow AddFinishedDetailRow(int FInishedDetailID, OrderRow parentOrderRowByFK_FinishedDetail_Order, _3DModelRow parent_3DModelRowByFK_FinishedDetail_3DModel, System.DateTime DateOfManufacture, bool DetailStatus, string О_моделе) {
+                FinishedDetailRow rowFinishedDetailRow = ((FinishedDetailRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        FInishedDetailID,
+                        null,
+                        null,
+                        DateOfManufacture,
+                        DetailStatus,
+                        О_моделе};
+                if ((parentOrderRowByFK_FinishedDetail_Order != null)) {
+                    columnValuesArray[1] = parentOrderRowByFK_FinishedDetail_Order[0];
+                }
+                if ((parent_3DModelRowByFK_FinishedDetail_3DModel != null)) {
+                    columnValuesArray[2] = parent_3DModelRowByFK_FinishedDetail_3DModel[0];
+                }
+                rowFinishedDetailRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowFinishedDetailRow);
+                return rowFinishedDetailRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FinishedDetailRow AddFinishedDetailRow(int FInishedDetailID, OrderRow parentOrderRowByFK_FinishedDetail_Order, _3DModelRow parent_3DModelRowByFK_FinishedDetail_3DModel, System.DateTime DateOfManufacture, bool DetailStatus) {
                 FinishedDetailRow rowFinishedDetailRow = ((FinishedDetailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1150,7 +1254,8 @@ namespace _3DPrinting_ORBD {
                         null,
                         null,
                         DateOfManufacture,
-                        DetailStatus};
+                        DetailStatus,
+                        null};
                 if ((parentOrderRowByFK_FinishedDetail_Order != null)) {
                     columnValuesArray[1] = parentOrderRowByFK_FinishedDetail_Order[0];
                 }
@@ -1191,6 +1296,7 @@ namespace _3DPrinting_ORBD {
                 this.columnModelID = base.Columns["ModelID"];
                 this.columnDateOfManufacture = base.Columns["DateOfManufacture"];
                 this.columnDetailStatus = base.Columns["DetailStatus"];
+                this.columnО_моделе = base.Columns["О_моделе"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1206,6 +1312,8 @@ namespace _3DPrinting_ORBD {
                 base.Columns.Add(this.columnDateOfManufacture);
                 this.columnDetailStatus = new global::System.Data.DataColumn("DetailStatus", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDetailStatus);
+                this.columnО_моделе = new global::System.Data.DataColumn("О_моделе", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnО_моделе);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnFInishedDetailID}, true));
                 this.columnFInishedDetailID.AllowDBNull = false;
@@ -1214,6 +1322,7 @@ namespace _3DPrinting_ORBD {
                 this.columnModelID.AllowDBNull = false;
                 this.columnDateOfManufacture.AllowDBNull = false;
                 this.columnDetailStatus.AllowDBNull = false;
+                this.columnО_моделе.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1232,6 +1341,12 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(FinishedDetailRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.О_моделеColumn.Expression = "Parent(FK_FinishedDetail_3DModel).Info";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1363,12 +1478,23 @@ namespace _3DPrinting_ORBD {
             
             private global::System.Data.DataColumn columnCost;
             
+            private global::System.Data.DataColumn columnCustomer;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public OrderDataTable() {
+            public OrderDataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public OrderDataTable(bool initExpressions) {
                 this.TableName = "Order";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -1462,6 +1588,14 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn CustomerColumn {
+                get {
+                    return this.columnCustomer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1497,6 +1631,28 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public OrderRow AddOrderRow(int OrderID, CustomerRow parentCustomerRowByFK_Order_Customer, decimal CostPrice, string Plastic, string OrderStatus, decimal Profit, System.DateTime Deadline, decimal Cost, string Customer) {
+                OrderRow rowOrderRow = ((OrderRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        OrderID,
+                        null,
+                        CostPrice,
+                        Plastic,
+                        OrderStatus,
+                        Profit,
+                        Deadline,
+                        Cost,
+                        Customer};
+                if ((parentCustomerRowByFK_Order_Customer != null)) {
+                    columnValuesArray[1] = parentCustomerRowByFK_Order_Customer[0];
+                }
+                rowOrderRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowOrderRow);
+                return rowOrderRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public OrderRow AddOrderRow(int OrderID, CustomerRow parentCustomerRowByFK_Order_Customer, decimal CostPrice, string Plastic, string OrderStatus, decimal Profit, System.DateTime Deadline, decimal Cost) {
                 OrderRow rowOrderRow = ((OrderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -1507,7 +1663,8 @@ namespace _3DPrinting_ORBD {
                         OrderStatus,
                         Profit,
                         Deadline,
-                        Cost};
+                        Cost,
+                        null};
                 if ((parentCustomerRowByFK_Order_Customer != null)) {
                     columnValuesArray[1] = parentCustomerRowByFK_Order_Customer[0];
                 }
@@ -1548,6 +1705,7 @@ namespace _3DPrinting_ORBD {
                 this.columnProfit = base.Columns["Profit"];
                 this.columnDeadline = base.Columns["Deadline"];
                 this.columnCost = base.Columns["Cost"];
+                this.columnCustomer = base.Columns["Customer"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1569,18 +1727,21 @@ namespace _3DPrinting_ORBD {
                 base.Columns.Add(this.columnDeadline);
                 this.columnCost = new global::System.Data.DataColumn("Cost", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCost);
+                this.columnCustomer = new global::System.Data.DataColumn("Customer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnOrderID}, true));
                 this.columnOrderID.AllowDBNull = false;
                 this.columnOrderID.Unique = true;
                 this.columnCustomerID.AllowDBNull = false;
-                this.columnCostPrice.AllowDBNull = false;
+                this.columnCostPrice.DefaultValue = ((decimal)(0m));
                 this.columnPlastic.MaxLength = 10;
                 this.columnOrderStatus.AllowDBNull = false;
                 this.columnOrderStatus.MaxLength = 20;
-                this.columnProfit.AllowDBNull = false;
+                this.columnProfit.ReadOnly = true;
                 this.columnDeadline.AllowDBNull = false;
-                this.columnCost.AllowDBNull = false;
+                this.columnCost.DefaultValue = ((decimal)(0m));
+                this.columnCustomer.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1599,6 +1760,12 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(OrderRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitExpressions() {
+                this.CustomerColumn.Expression = "Parent(FK_Order_Customer).FIO";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1793,6 +1960,22 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Info {
+                get {
+                    try {
+                        return ((string)(this[this.table3DModel.InfoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Info\' в таблице \'3DModel\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.table3DModel.InfoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public OrderRow OrderRow {
                 get {
                     return ((OrderRow)(this.GetParentRow(this.Table.ParentRelations["FK_3DModel_Order"])));
@@ -1836,6 +2019,18 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetDimensionsNull() {
                 this[this.table3DModel.DimensionsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsInfoNull() {
+                return this.IsNull(this.table3DModel.InfoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetInfoNull() {
+                this[this.table3DModel.InfoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1997,6 +2192,22 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string О_моделе {
+                get {
+                    try {
+                        return ((string)(this[this.tableFinishedDetail.О_моделеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'О_моделе\' в таблице \'FinishedDetail\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableFinishedDetail.О_моделеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public _3DModelRow _3DModelRow {
                 get {
                     return ((_3DModelRow)(this.GetParentRow(this.Table.ParentRelations["FK_FinishedDetail_3DModel"])));
@@ -2015,6 +2226,18 @@ namespace _3DPrinting_ORBD {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_FinishedDetail_Order"]);
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsО_моделеNull() {
+                return this.IsNull(this.tableFinishedDetail.О_моделеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetО_моделеNull() {
+                this[this.tableFinishedDetail.О_моделеColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2058,7 +2281,12 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal CostPrice {
                 get {
-                    return ((decimal)(this[this.tableOrder.CostPriceColumn]));
+                    try {
+                        return ((decimal)(this[this.tableOrder.CostPriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'CostPrice\' в таблице \'Order\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableOrder.CostPriceColumn] = value;
@@ -2096,7 +2324,12 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Profit {
                 get {
-                    return ((decimal)(this[this.tableOrder.ProfitColumn]));
+                    try {
+                        return ((decimal)(this[this.tableOrder.ProfitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Profit\' в таблице \'Order\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableOrder.ProfitColumn] = value;
@@ -2118,10 +2351,31 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public decimal Cost {
                 get {
-                    return ((decimal)(this[this.tableOrder.CostColumn]));
+                    try {
+                        return ((decimal)(this[this.tableOrder.CostColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Cost\' в таблице \'Order\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableOrder.CostColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Customer {
+                get {
+                    try {
+                        return ((string)(this[this.tableOrder.CustomerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Customer\' в таблице \'Order\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableOrder.CustomerColumn] = value;
                 }
             }
             
@@ -2138,6 +2392,18 @@ namespace _3DPrinting_ORBD {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCostPriceNull() {
+                return this.IsNull(this.tableOrder.CostPriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCostPriceNull() {
+                this[this.tableOrder.CostPriceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPlasticNull() {
                 return this.IsNull(this.tableOrder.PlasticColumn);
             }
@@ -2146,6 +2412,42 @@ namespace _3DPrinting_ORBD {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPlasticNull() {
                 this[this.tableOrder.PlasticColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsProfitNull() {
+                return this.IsNull(this.tableOrder.ProfitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetProfitNull() {
+                this[this.tableOrder.ProfitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCostNull() {
+                return this.IsNull(this.tableOrder.CostColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCostNull() {
+                this[this.tableOrder.CostColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsCustomerNull() {
+                return this.IsNull(this.tableOrder.CustomerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetCustomerNull() {
+                this[this.tableOrder.CustomerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2507,7 +2809,7 @@ SELECT ModelID, OrderID, Sreenshot, Dimensions, FileFormat FROM [3DModel] WHERE 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual _3D_PrintingDataSet._3DModelDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            _3D_PrintingDataSet._3DModelDataTable dataTable = new _3D_PrintingDataSet._3DModelDataTable();
+            _3D_PrintingDataSet._3DModelDataTable dataTable = new _3D_PrintingDataSet._3DModelDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3223,7 +3525,7 @@ SELECT FInishedDetailID, OrderID, ModelID, DateOfManufacture, DetailStatus FROM 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual _3D_PrintingDataSet.FinishedDetailDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            _3D_PrintingDataSet.FinishedDetailDataTable dataTable = new _3D_PrintingDataSet.FinishedDetailDataTable();
+            _3D_PrintingDataSet.FinishedDetailDataTable dataTable = new _3D_PrintingDataSet.FinishedDetailDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3564,7 +3866,7 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual _3D_PrintingDataSet.OrderDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            _3D_PrintingDataSet.OrderDataTable dataTable = new _3D_PrintingDataSet.OrderDataTable();
+            _3D_PrintingDataSet.OrderDataTable dataTable = new _3D_PrintingDataSet.OrderDataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3602,10 +3904,15 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_OrderID, int Original_CustomerID, decimal Original_CostPrice, string Original_Plastic, string Original_OrderStatus, decimal Original_Profit, System.DateTime Original_Deadline, decimal Original_Cost) {
+        public virtual int Delete(int Original_OrderID, int Original_CustomerID, global::System.Nullable<decimal> Original_CostPrice, string Original_Plastic, string Original_OrderStatus, global::System.Nullable<decimal> Original_Profit, System.DateTime Original_Deadline, global::System.Nullable<decimal> Original_Cost) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_OrderID));
             this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_CustomerID));
-            this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_CostPrice));
+            if ((Original_CostPrice.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((decimal)(Original_CostPrice.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((Original_Plastic == null)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
@@ -3618,9 +3925,19 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             else {
                 this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_OrderStatus));
             }
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_Profit));
+            if ((Original_Profit.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((decimal)(Original_Profit.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Deadline));
-            this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_Cost));
+            if ((Original_Cost.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((decimal)(Original_Cost.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3641,10 +3958,15 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int OrderID, int CustomerID, decimal CostPrice, string Plastic, string OrderStatus, decimal Profit, System.DateTime Deadline, decimal Cost) {
+        public virtual int Insert(int OrderID, int CustomerID, global::System.Nullable<decimal> CostPrice, string Plastic, string OrderStatus, global::System.Nullable<decimal> Profit, System.DateTime Deadline, global::System.Nullable<decimal> Cost) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(OrderID));
             this.Adapter.InsertCommand.Parameters[1].Value = ((int)(CustomerID));
-            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(CostPrice));
+            if ((CostPrice.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(CostPrice.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((Plastic == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
@@ -3657,9 +3979,19 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(OrderStatus));
             }
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Profit));
+            if ((Profit.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(Profit.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(Deadline));
-            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(Cost));
+            if ((Cost.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(Cost.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3683,23 +4015,28 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
         public virtual int Update(
                     int OrderID, 
                     int CustomerID, 
-                    decimal CostPrice, 
+                    global::System.Nullable<decimal> CostPrice, 
                     string Plastic, 
                     string OrderStatus, 
-                    decimal Profit, 
+                    global::System.Nullable<decimal> Profit, 
                     System.DateTime Deadline, 
-                    decimal Cost, 
+                    global::System.Nullable<decimal> Cost, 
                     int Original_OrderID, 
                     int Original_CustomerID, 
-                    decimal Original_CostPrice, 
+                    global::System.Nullable<decimal> Original_CostPrice, 
                     string Original_Plastic, 
                     string Original_OrderStatus, 
-                    decimal Original_Profit, 
+                    global::System.Nullable<decimal> Original_Profit, 
                     System.DateTime Original_Deadline, 
-                    decimal Original_Cost) {
+                    global::System.Nullable<decimal> Original_Cost) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(OrderID));
             this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(CustomerID));
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(CostPrice));
+            if ((CostPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((decimal)(CostPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((Plastic == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
@@ -3712,12 +4049,27 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(OrderStatus));
             }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Profit));
+            if ((Profit.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((decimal)(Profit.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Deadline));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Cost));
+            if ((Cost.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((decimal)(Cost.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_OrderID));
             this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_CustomerID));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_CostPrice));
+            if ((Original_CostPrice.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((decimal)(Original_CostPrice.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
             if ((Original_Plastic == null)) {
                 this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
@@ -3730,9 +4082,19 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_OrderStatus));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_Profit));
+            if ((Original_Profit.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_Profit.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
             this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_Deadline));
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_Cost));
+            if ((Original_Cost.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((decimal)(Original_Cost.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3753,7 +4115,7 @@ SELECT OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, C
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int CustomerID, decimal CostPrice, string Plastic, string OrderStatus, decimal Profit, System.DateTime Deadline, decimal Cost, int Original_OrderID, int Original_CustomerID, decimal Original_CostPrice, string Original_Plastic, string Original_OrderStatus, decimal Original_Profit, System.DateTime Original_Deadline, decimal Original_Cost) {
+        public virtual int Update(int CustomerID, global::System.Nullable<decimal> CostPrice, string Plastic, string OrderStatus, global::System.Nullable<decimal> Profit, System.DateTime Deadline, global::System.Nullable<decimal> Cost, int Original_OrderID, int Original_CustomerID, global::System.Nullable<decimal> Original_CostPrice, string Original_Plastic, string Original_OrderStatus, global::System.Nullable<decimal> Original_Profit, System.DateTime Original_Deadline, global::System.Nullable<decimal> Original_Cost) {
             return this.Update(Original_OrderID, CustomerID, CostPrice, Plastic, OrderStatus, Profit, Deadline, Cost, Original_OrderID, Original_CustomerID, Original_CostPrice, Original_Plastic, Original_OrderStatus, Original_Profit, Original_Deadline, Original_Cost);
         }
     }

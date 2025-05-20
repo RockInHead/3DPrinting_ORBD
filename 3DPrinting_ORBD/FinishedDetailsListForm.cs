@@ -27,6 +27,10 @@ namespace _3DPrinting_ORBD
 
         private void FinishedDetailsListForm_Load(object sender, EventArgs e)
         {
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_3D_PrintingDataSet._3DModel". При необходимости она может быть перемещена или удалена.
+            this._3DModelTableAdapter.Fill(this._3D_PrintingDataSet._3DModel);
+            // TODO: данная строка кода позволяет загрузить данные в таблицу "_3D_PrintingDataSet.Customer". При необходимости она может быть перемещена или удалена.
+            this.customerTableAdapter.Fill(this._3D_PrintingDataSet.Customer);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_3D_PrintingDataSet.FinishedDetail". При необходимости она может быть перемещена или удалена.
             this.finishedDetailTableAdapter.Fill(this._3D_PrintingDataSet.FinishedDetail);
             // TODO: данная строка кода позволяет загрузить данные в таблицу "_3D_PrintingDataSet.Order". При необходимости она может быть перемещена или удалена.
@@ -114,6 +118,34 @@ namespace _3DPrinting_ORBD
                 {
                     MessageBox.Show($"Ошибка при обновлении кода сотрудника: {ex.Message}");
                 }
+            }
+        }
+
+        private void finishedDetailDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if ((finishedDetailDataGridView.Rows[e.RowIndex]
+                     .Cells["DataGridViewCheckBoxColumnDetailStatus"].Value
+                 == null)
+                || (finishedDetailDataGridView.Rows[e.RowIndex]
+                        .Cells["DataGridViewCheckBoxColumnDetailStatus"
+                        ]
+                        .Value.ToString()
+                    == ""))
+            {
+                e.CellStyle.BackColor = Color.White;
+            }
+            else if (finishedDetailDataGridView.Rows[e.RowIndex]
+                         .Cells["DataGridViewCheckBoxColumnDetailStatus"
+                         ]
+                         .Value.ToString()
+                     == "True")
+            {
+                e.CellStyle.BackColor = Color.LightGreen;
+
+            }
+            else
+            {
+                e.CellStyle.BackColor = Color.Pink;
             }
         }
     }
