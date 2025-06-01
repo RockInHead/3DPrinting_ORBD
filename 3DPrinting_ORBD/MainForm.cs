@@ -64,5 +64,10 @@ namespace _3DPrinting_ORBD
         {
             FinishedDetailsListForm.fdlf.ShowForm();
         }
+
+        private void запросыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           SQLForm.sqlf.ShowForm();
+        }
     }
 }
