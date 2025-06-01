@@ -71,5 +71,90 @@ namespace _3DPrinting_ORBD
             Show();
             Activate();
         }
+
+        private void buttonF_select_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxOrderID.Text))
+            {
+                MessageBox.Show("Обязательно укажите фамилию необходимого сотрудника.\n Допустим ввод первых символов.", "Внимание", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (checkBoxMore.Checked && String.IsNullOrEmpty(textBoxMore.Text))
+            {
+                MessageBox.Show("Не указана прибыль в условии", "Внимание",
+               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                checkBoxMore.Checked = false;
+                return;
+            }
+
+            string sqlSelect = "";
+            if (radioButtonDet_Sales.Checked)
+                sqlSelect = @"SELECT 
+                        c.CustomerID, 
+                        o.OrderID,
+                        c.FIO, 
+                        SUM(o.Profit) AS Прибыль
+                    FROM 
+                        Customer c
+                    INNER JOIN 
+                        [Order] o ON c.CustomerID = o.CustomerID
+                    WHERE 
+                        c.FIO LIKE @FIO 
+                    GROUP BY 
+                        c.CustomerID,o.OrderID, c.FIO";
+            else if (radioButtonDet_Type.Checked)
+                sqlSelect = @"SELECT 
+                            Customer.CustomerID,Customer.FIO,
+                            Plastic AS [Тип пластика],
+                            SUM(Profit) AS Прибыль  
+                        FROM 
+                            Customer 
+                        INNER JOIN 
+                            [Order] ON Customer.CustomerID = [Order].CustomerID
+                        WHERE 
+                            Customer.FIO LIKE @FIO 
+                        GROUP BY 
+                            Customer.CustomerID,Plastic, Customer.FIO";
+            else
+                sqlSelect = @"SELECT Customer.CustomerID,Customer.FIO,
+	                            Profit AS Прибыль			
+                            FROM Customer INNER JOIN [Order] ON
+                            Customer.CustomerID=[Order].CustomerID
+	                        WHERE 
+                            Customer.FIO LIKE @FIO 
+                            GROUP BY 
+                                Customer.CustomerID,Customer.FIO, Profit";
+
+            if (checkBoxMore.Checked)
+                sqlSelect += " HAVING Sum(Profit) >@amount";
+            if (checkBoxOrder.Checked)
+                sqlSelect += " ORDER BY Sum(Profit) desc";
+            SqlConnection connection = new
+           SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = sqlSelect;
+            command.Parameters.AddWithValue("@FIO", textBoxOrderID.Text +
+           "%");
+            if (checkBoxMore.Checked)
+                try
+                {
+                    command.Parameters.Add("@amount", SqlDbType.Money).Value =
+                   Double.Parse(textBoxMore.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Прибыль в условии должна быть задана числом", "ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   
+                    checkBoxMore.Checked = false;
+                    return;
+                }
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dataGridViewFSelect.DataSource = table;
+            if (table.Rows.Count == 0) MessageBox.Show("Нет значений!","Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
