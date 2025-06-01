@@ -156,5 +156,74 @@ namespace _3DPrinting_ORBD
             dataGridViewFSelect.DataSource = table;
             if (table.Rows.Count == 0) MessageBox.Show("Нет значений!","Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void buttonSubquery_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(textBoxNumber.Text))
+            {
+                MessageBox.Show("Обязательно укажите номер необходимой продажи",
+               "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string sqlSelect = "";
+
+            if (radioButtonCorrelated.Checked)
+                sqlSelect = @"SELECT 
+                            m.ModelID,
+	                        m.FileFormat AS [Формат файла],
+                            m.Dimensions AS [Размеры модели],
+                            (
+                                SELECT COUNT(*)
+                                FROM FinishedDetail fd
+                                WHERE fd.ModelID = m.ModelID -- Корреляция
+                            ) AS [Напечатанные детали по модели]
+                        FROM 
+                            [3DModel] m
+                        WHERE 
+                            m.ModelID = @number;";
+                            else
+                            if (radioButtonNoCorrelated.Checked)
+                                sqlSelect = @"SELECT 
+                                        m.ModelID,
+                                        CASE 
+                                            WHEN fd.FinishedDetailID IS NOT NULL THEN 'Да'
+                                            ELSE 'Нет'
+                                        END AS [Модель использовалась для печати]
+                                    FROM 
+                                        [3DModel] m
+                                    LEFT JOIN 
+                                        FinishedDetail fd ON m.ModelID = fd.ModelID
+                                    WHERE 
+                                        m.ModelID = @number
+                                    GROUP BY 
+                                        m.ModelID, fd.FinishedDetailID;";
+            else
+            {
+                MessageBox.Show("Не выбрали вид подзапроса", "Ошибка",
+               MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            SqlConnection connection = new
+           SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = sqlSelect;
+            try
+            {
+                command.Parameters.Add("@number", SqlDbType.Int).Value =
+               int.Parse(textBoxNumber.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Номер продажи в условии должен быть задан числом", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+            }
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = command;
+            DataTable table = new DataTable();
+            adapter.Fill(table);
+            dataGridViewSubquery.DataSource = table;
+            if (table.Rows.Count == 0) MessageBox.Show("Нет значений!",
+           "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }

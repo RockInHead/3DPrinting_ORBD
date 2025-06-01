@@ -48,6 +48,14 @@
             this.radioButtonDet_Sales = new System.Windows.Forms.RadioButton();
             this.textBoxOrderID = new System.Windows.Forms.TextBox();
             this.labelOrderID = new System.Windows.Forms.Label();
+            this.tabPageSubquery = new System.Windows.Forms.TabPage();
+            this.groupBoxSubquery = new System.Windows.Forms.GroupBox();
+            this.radioButtonCorrelated = new System.Windows.Forms.RadioButton();
+            this.radioButtonNoCorrelated = new System.Windows.Forms.RadioButton();
+            this.labelNumber = new System.Windows.Forms.Label();
+            this.textBoxNumber = new System.Windows.Forms.TextBox();
+            this.buttonSubquery = new System.Windows.Forms.Button();
+            this.dataGridViewSubquery = new System.Windows.Forms.DataGridView();
             this.tabControlSQL.SuspendLayout();
             this.tabPagePrimer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSelect)).BeginInit();
@@ -56,12 +64,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFSelect)).BeginInit();
             this.groupBoxFSelect.SuspendLayout();
             this.groupBoxDet.SuspendLayout();
+            this.tabPageSubquery.SuspendLayout();
+            this.groupBoxSubquery.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubquery)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlSQL
             // 
             this.tabControlSQL.Controls.Add(this.tabPagePrimer);
             this.tabControlSQL.Controls.Add(this.tabPageSelect);
+            this.tabControlSQL.Controls.Add(this.tabPageSubquery);
             this.tabControlSQL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlSQL.Location = new System.Drawing.Point(0, 0);
             this.tabControlSQL.Name = "tabControlSQL";
@@ -278,6 +290,90 @@
             this.labelOrderID.TabIndex = 0;
             this.labelOrderID.Text = "ФИО Заказчика:";
             // 
+            // tabPageSubquery
+            // 
+            this.tabPageSubquery.Controls.Add(this.dataGridViewSubquery);
+            this.tabPageSubquery.Controls.Add(this.groupBoxSubquery);
+            this.tabPageSubquery.Location = new System.Drawing.Point(4, 25);
+            this.tabPageSubquery.Name = "tabPageSubquery";
+            this.tabPageSubquery.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageSubquery.Size = new System.Drawing.Size(792, 421);
+            this.tabPageSubquery.TabIndex = 2;
+            this.tabPageSubquery.Text = "Примеры подзапросов";
+            this.tabPageSubquery.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxSubquery
+            // 
+            this.groupBoxSubquery.Controls.Add(this.buttonSubquery);
+            this.groupBoxSubquery.Controls.Add(this.textBoxNumber);
+            this.groupBoxSubquery.Controls.Add(this.labelNumber);
+            this.groupBoxSubquery.Controls.Add(this.radioButtonNoCorrelated);
+            this.groupBoxSubquery.Controls.Add(this.radioButtonCorrelated);
+            this.groupBoxSubquery.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxSubquery.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxSubquery.Name = "groupBoxSubquery";
+            this.groupBoxSubquery.Size = new System.Drawing.Size(786, 146);
+            this.groupBoxSubquery.TabIndex = 0;
+            this.groupBoxSubquery.TabStop = false;
+            this.groupBoxSubquery.Text = "Подзапросы по данным";
+            // 
+            // radioButtonCorrelated
+            // 
+            this.radioButtonCorrelated.AutoSize = true;
+            this.radioButtonCorrelated.Location = new System.Drawing.Point(56, 57);
+            this.radioButtonCorrelated.Name = "radioButtonCorrelated";
+            this.radioButtonCorrelated.Size = new System.Drawing.Size(175, 17);
+            this.radioButtonCorrelated.TabIndex = 0;
+            this.radioButtonCorrelated.TabStop = true;
+            this.radioButtonCorrelated.Text = "Коррелированный подзапрос";
+            this.radioButtonCorrelated.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonNoCorrelated
+            // 
+            this.radioButtonNoCorrelated.AutoSize = true;
+            this.radioButtonNoCorrelated.Location = new System.Drawing.Point(297, 57);
+            this.radioButtonNoCorrelated.Name = "radioButtonNoCorrelated";
+            this.radioButtonNoCorrelated.Size = new System.Drawing.Size(188, 17);
+            this.radioButtonNoCorrelated.TabIndex = 1;
+            this.radioButtonNoCorrelated.TabStop = true;
+            this.radioButtonNoCorrelated.Text = "Некоррелированный подзапрос";
+            this.radioButtonNoCorrelated.UseVisualStyleBackColor = true;
+            // 
+            // labelNumber
+            // 
+            this.labelNumber.AutoSize = true;
+            this.labelNumber.Location = new System.Drawing.Point(53, 23);
+            this.labelNumber.Name = "labelNumber";
+            this.labelNumber.Size = new System.Drawing.Size(44, 13);
+            this.labelNumber.TabIndex = 2;
+            this.labelNumber.Text = "OrderID";
+            // 
+            // textBoxNumber
+            // 
+            this.textBoxNumber.Location = new System.Drawing.Point(103, 20);
+            this.textBoxNumber.Name = "textBoxNumber";
+            this.textBoxNumber.Size = new System.Drawing.Size(146, 20);
+            this.textBoxNumber.TabIndex = 3;
+            // 
+            // buttonSubquery
+            // 
+            this.buttonSubquery.Location = new System.Drawing.Point(153, 95);
+            this.buttonSubquery.Name = "buttonSubquery";
+            this.buttonSubquery.Size = new System.Drawing.Size(226, 31);
+            this.buttonSubquery.TabIndex = 4;
+            this.buttonSubquery.Text = "Выполнить подзапрос";
+            this.buttonSubquery.UseVisualStyleBackColor = true;
+            this.buttonSubquery.Click += new System.EventHandler(this.buttonSubquery_Click);
+            // 
+            // dataGridViewSubquery
+            // 
+            this.dataGridViewSubquery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSubquery.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSubquery.Location = new System.Drawing.Point(3, 149);
+            this.dataGridViewSubquery.Name = "dataGridViewSubquery";
+            this.dataGridViewSubquery.Size = new System.Drawing.Size(786, 269);
+            this.dataGridViewSubquery.TabIndex = 1;
+            // 
             // SQLForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -297,6 +393,10 @@
             this.groupBoxFSelect.PerformLayout();
             this.groupBoxDet.ResumeLayout(false);
             this.groupBoxDet.PerformLayout();
+            this.tabPageSubquery.ResumeLayout(false);
+            this.groupBoxSubquery.ResumeLayout(false);
+            this.groupBoxSubquery.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSubquery)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,5 +423,13 @@
         private System.Windows.Forms.Button buttonF_select;
         private System.Windows.Forms.CheckBox checkBoxOrder;
         private System.Windows.Forms.DataGridView dataGridViewFSelect;
+        private System.Windows.Forms.TabPage tabPageSubquery;
+        private System.Windows.Forms.GroupBox groupBoxSubquery;
+        private System.Windows.Forms.Label labelNumber;
+        private System.Windows.Forms.RadioButton radioButtonNoCorrelated;
+        private System.Windows.Forms.RadioButton radioButtonCorrelated;
+        private System.Windows.Forms.DataGridView dataGridViewSubquery;
+        private System.Windows.Forms.Button buttonSubquery;
+        private System.Windows.Forms.TextBox textBoxNumber;
     }
 }
