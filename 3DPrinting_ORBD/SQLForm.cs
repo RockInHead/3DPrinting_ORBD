@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
+using System.Data.Common;
 
 namespace _3DPrinting_ORBD
 {
@@ -224,6 +226,117 @@ namespace _3DPrinting_ORBD
             dataGridViewSubquery.DataSource = table;
             if (table.Rows.Count == 0) MessageBox.Show("Нет значений!",
            "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        string fileImage = "";
+
+        private void buttonOpenPhoto_model_Click(object sender, EventArgs e)
+        {
+            openFileDialogModel.Title = "Укажите файл для фото";
+            if (openFileDialogModel.ShowDialog() == DialogResult.OK)
+            {
+                fileImage = openFileDialogModel.FileName;
+                try
+                {
+                    pictureBoxPhoto_model.Load(openFileDialogModel.FileName);
+                }
+                catch
+                {
+                    MessageBox.Show("Выбран не тот формат файла", "Ошибка",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else fileImage = "";
+        }
+
+        void InsertModel()
+        {
+            if (String.IsNullOrEmpty(textBoxId_model.Text) ||
+           (String.IsNullOrEmpty(textBoxOrderID_model.Text) ||
+           (String.IsNullOrEmpty(textBoxDimension_model.Text))))
+            {
+                MessageBox.Show("Обязательно введите код блюда, название, тип и цену блюда", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+            }
+            int id;
+            if (!int.TryParse(textBoxId_model.Text, out id))
+            {
+                MessageBox.Show("Некоректное значение кода блюда!", "Внимание",
+               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int orderId = 0;
+            if (!int.TryParse(textBoxOrderID_model.Text, out orderId))
+            {
+                MessageBox.Show("Некоректное значение цены!", "Внимание",
+               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+            string sqlInsert = @"INSERT INTO [3DModel] (ModelID, OrderID, Dimensions,Sreenshot, FileFormat)
+                 VALUES (@id, @orderId, @dimensions, @sreenshot, @fileFormat)";
+            SqlConnection connection = new
+           SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = sqlInsert;
+            command.Parameters.AddWithValue("@id", id);
+            command.Parameters.AddWithValue("@orderId", textBoxOrderID_model.Text);
+            //или другим способом, если необходимо явное указание типа данных
+            command.Parameters.Add("@dimensions", textBoxDimension_model.Text);
+            command.Parameters.Add("@fileFormat", SqlDbType.NVarChar).Value = textBoxFileFormat_model.Text;
+
+            if (!String.IsNullOrEmpty(fileImage))
+                command.Parameters.AddWithValue("@sreenshot",
+               File.ReadAllBytes(fileImage));
+            else
+            {
+                command.Parameters.Add("@sreenshot", SqlDbType.VarBinary);
+                command.Parameters["@sreenshot"].Value = DBNull.Value;
+            }
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Ошибка выполнения запроса.\n" + err.Message,
+               "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            connection.Close();
+            buttonSelectModels_Click(this, EventArgs.Empty);
+        }
+
+        private void buttonSelectModels_Click(object sender, EventArgs e)
+        {
+            dataGridViewModel.DataSource = FillDataGridView("SELECT * FROM [3DModel]");
+            DataGridViewImageColumn column = (DataGridViewImageColumn)dataGridViewModel.Columns["Sreenshot"]; 
+            column.ImageLayout = DataGridViewImageCellLayout.Stretch;
+        }
+
+        private void buttonExecuteDML_Click(object sender, EventArgs e)
+        {
+            if (radioButtonInsert_model.Checked)
+            {
+                InsertModel();
+            }
+            else if (radioButtonUpdate_model.Checked)
+            {
+                //UpdateDish();
+            }
+            else if (radioButtonDelete_model.Checked)
+            {
+                //DeleteDish();
+            }
+            else
+            {
+                MessageBox.Show("Вы не выбрали действие", "Внимание",
+               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
     }
 }
