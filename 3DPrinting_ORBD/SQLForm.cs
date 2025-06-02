@@ -340,56 +340,43 @@ namespace _3DPrinting_ORBD
                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            int fileFormat = 0;
-            if ((!String.IsNullOrEmpty(textBoxOrderID_model.Text)) &&
-           (!int.TryParse(textBoxOrderID_model.Text, out orderId)))
+            string fileFormat = "";
+            if ((String.IsNullOrEmpty(textBoxOrderID_model.Text)))
             {
                 MessageBox.Show("Некоректное значение цены!", "Внимание",
                MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string sqlUpdate = "UPDATE Блюда SET {0} [Фирменное_ блюдо]=@Firm WHERE Код_блюда = @Id_dish";
+            string sqlUpdate = "UPDATE [3DModel] SET {0} WHERE ModelID = @id";
  SqlConnection connection = new
 SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
             connection.Open();
             SqlCommand command = connection.CreateCommand();
             string sqlValues = "";
-            if (!String.IsNullOrEmpty(textBoxName_dish.Text))
-                sqlValues += "Название=@Name,";
-            if (!String.IsNullOrEmpty(textBoxType_dish.Text))
-                sqlValues += "Тип=@Type,";
-            if (!String.IsNullOrEmpty(textBoxPrice_dish.Text))
-                sqlValues += "Цена_меню=@Price,";
-            if (!String.IsNullOrEmpty(textBoxWeight_dish.Text))
-                sqlValues += "Выход=@Weight,";
-            if (!String.IsNullOrEmpty(listBoxEd_dish.Text))
-                sqlValues += "Единицы=@Ed,";
+            if (!String.IsNullOrEmpty(textBoxId_model.Text))
+                sqlValues += "ModelID=@id,";
+            if (!String.IsNullOrEmpty(textBoxOrderID_model.Text))
+                sqlValues += "OrderID=@orderId,";
+            if (!String.IsNullOrEmpty(textBoxDimension_model.Text))
+                sqlValues += "Dimensions=@dimensions,";
+            if (!String.IsNullOrEmpty(textBoxFileFormat_model.Text))
+                sqlValues += "FileFormat=@fileFormat,";
             if (!String.IsNullOrEmpty(fileImage))
-                sqlValues += "Фото=@Photo,";
-            if (!String.IsNullOrEmpty(textBoxIng_dish.Text))
-                sqlValues += "Состав=@Sostav,";
+                sqlValues += "Sreenshot=@screenshot";
             command.CommandText = String.Format(sqlUpdate, sqlValues);
-            if (!String.IsNullOrEmpty(textBoxName_dish.Text))
-                command.Parameters.AddWithValue("@Name", textBoxName_dish.Text);
-            //или другим способом, если необходимо явное указание типа данных
-            if (!String.IsNullOrEmpty(textBoxType_dish.Text))
-                command.Parameters.Add("@Type", SqlDbType.NVarChar).Value =
-               textBoxType_dish.Text;
-            if (!String.IsNullOrEmpty(textBoxPrice_dish.Text))
-                command.Parameters.AddWithValue("@Price", price);
-            if (!String.IsNullOrEmpty(textBoxWeight_dish.Text))
-                command.Parameters.AddWithValue("@Weight", weight);
-            if (!String.IsNullOrEmpty(listBoxEd_dish.Text))
-                command.Parameters.AddWithValue("@Ed", listBoxEd_dish.Text);
             if (!String.IsNullOrEmpty(fileImage))
-                command.Parameters.AddWithValue("@Photo",
+                command.Parameters.AddWithValue("@screenshot",
                File.ReadAllBytes(fileImage));
-            if (!String.IsNullOrEmpty(textBoxIng_dish.Text))
-                command.Parameters.AddWithValue("@Sostav",
-               textBoxIng_dish.Text);
-            command.Parameters.AddWithValue("@Firm", checkBoxFirm.Checked);
-            command.Parameters.AddWithValue("@Id_dish", id);
+            
+            command.Parameters.AddWithValue("@id", id);
+            if (!String.IsNullOrEmpty(textBoxOrderID_model.Text))
+                command.Parameters.AddWithValue("@orderId", textBoxOrderID_model.Text);
+            if (!String.IsNullOrEmpty(textBoxDimension_model.Text))
+                command.Parameters.Add("@dimensions", textBoxDimension_model.Text);
+            if (!String.IsNullOrEmpty(textBoxFileFormat_model.Text))
+                command.Parameters.Add("@fileFormat", SqlDbType.NVarChar).Value = textBoxFileFormat_model.Text;
+
             try
             {
                 command.ExecuteNonQuery();
@@ -412,7 +399,7 @@ SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
             }
             else if (radioButtonUpdate_model.Checked)
             {
-                //UpdateDish();
+                UpdateModel();
             }
             else if (radioButtonDelete_model.Checked)
             {
