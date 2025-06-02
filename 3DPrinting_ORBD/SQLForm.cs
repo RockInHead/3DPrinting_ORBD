@@ -390,6 +390,38 @@ SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
             buttonSelectModels_Click(this, EventArgs.Empty);
         }
 
+        void DeleteModel()
+        {
+            if (String.IsNullOrEmpty(textBoxId_model.Text))
+            {
+                MessageBox.Show("Обязательно укажите код блюда данные которого необходимо удалить", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return;
+            }
+            int id;
+            if (!int.TryParse(textBoxId_model.Text, out id))
+            {
+                MessageBox.Show("Некоректное значение кода блюда!", "Внимание",
+               MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string sqlDelete = @"DELETE FROM [3DModel] WHERE ModelID=@Id";
+            SqlConnection connection = new
+           SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
+            connection.Open();
+            SqlCommand command = connection.CreateCommand();
+            command.CommandText = sqlDelete;
+            command.Parameters.AddWithValue("@Id", id);
+            try
+            {
+                command.ExecuteNonQuery();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message, "Ошибка удаления");
+            }
+            connection.Close();
+            buttonSelectModels_Click(this, EventArgs.Empty);
+        }
 
         private void buttonExecuteDML_Click(object sender, EventArgs e)
         {
@@ -403,13 +435,19 @@ SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
             }
             else if (radioButtonDelete_model.Checked)
             {
-                //DeleteDish();
+                DeleteModel();
             }
             else
             {
                 MessageBox.Show("Вы не выбрали действие", "Внимание",
                MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+        }
+
+        private void radioButtonDelete_model_CheckedChanged(object sender, EventArgs e)
+        {
+            panelModel.Visible = !radioButtonDelete_model.Checked;
 
         }
     }

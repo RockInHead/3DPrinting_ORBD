@@ -103,7 +103,7 @@
             this.tabControlSQL.Controls.Add(this.tabPageDML);
             this.tabControlSQL.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlSQL.Location = new System.Drawing.Point(0, 0);
-            this.tabControlSQL.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabControlSQL.Margin = new System.Windows.Forms.Padding(2);
             this.tabControlSQL.Name = "tabControlSQL";
             this.tabControlSQL.SelectedIndex = 0;
             this.tabControlSQL.Size = new System.Drawing.Size(740, 554);
@@ -114,10 +114,10 @@
             this.tabPagePrimer.Controls.Add(this.dataGridViewSelect);
             this.tabPagePrimer.Controls.Add(this.groupBoxSelect);
             this.tabPagePrimer.Location = new System.Drawing.Point(4, 22);
-            this.tabPagePrimer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPagePrimer.Margin = new System.Windows.Forms.Padding(2);
             this.tabPagePrimer.Name = "tabPagePrimer";
-            this.tabPagePrimer.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPagePrimer.Size = new System.Drawing.Size(732, 391);
+            this.tabPagePrimer.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPagePrimer.Size = new System.Drawing.Size(732, 528);
             this.tabPagePrimer.TabIndex = 0;
             this.tabPagePrimer.Text = "Примеры запросов";
             this.tabPagePrimer.UseVisualStyleBackColor = true;
@@ -127,11 +127,11 @@
             this.dataGridViewSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSelect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSelect.Location = new System.Drawing.Point(2, 65);
-            this.dataGridViewSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewSelect.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSelect.Name = "dataGridViewSelect";
             this.dataGridViewSelect.RowHeadersWidth = 51;
             this.dataGridViewSelect.RowTemplate.Height = 24;
-            this.dataGridViewSelect.Size = new System.Drawing.Size(728, 324);
+            this.dataGridViewSelect.Size = new System.Drawing.Size(728, 461);
             this.dataGridViewSelect.TabIndex = 3;
             // 
             // groupBoxSelect
@@ -141,9 +141,9 @@
             this.groupBoxSelect.Controls.Add(this.radioButtonCustomers);
             this.groupBoxSelect.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxSelect.Location = new System.Drawing.Point(2, 2);
-            this.groupBoxSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSelect.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxSelect.Name = "groupBoxSelect";
-            this.groupBoxSelect.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSelect.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxSelect.Size = new System.Drawing.Size(728, 63);
             this.groupBoxSelect.TabIndex = 0;
             this.groupBoxSelect.TabStop = false;
@@ -153,7 +153,7 @@
             // 
             this.radioButtonFinishedDetails.AutoSize = true;
             this.radioButtonFinishedDetails.Location = new System.Drawing.Point(233, 17);
-            this.radioButtonFinishedDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonFinishedDetails.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonFinishedDetails.Name = "radioButtonFinishedDetails";
             this.radioButtonFinishedDetails.Size = new System.Drawing.Size(106, 17);
             this.radioButtonFinishedDetails.TabIndex = 2;
@@ -166,7 +166,7 @@
             // 
             this.radioButtonOrders.AutoSize = true;
             this.radioButtonOrders.Location = new System.Drawing.Point(122, 17);
-            this.radioButtonOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonOrders.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonOrders.Name = "radioButtonOrders";
             this.radioButtonOrders.Size = new System.Drawing.Size(64, 17);
             this.radioButtonOrders.TabIndex = 1;
@@ -179,7 +179,7 @@
             // 
             this.radioButtonCustomers.AutoSize = true;
             this.radioButtonCustomers.Location = new System.Drawing.Point(4, 17);
-            this.radioButtonCustomers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonCustomers.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonCustomers.Name = "radioButtonCustomers";
             this.radioButtonCustomers.Size = new System.Drawing.Size(79, 17);
             this.radioButtonCustomers.TabIndex = 0;
@@ -193,10 +193,10 @@
             this.tabPageSelect.Controls.Add(this.dataGridViewFSelect);
             this.tabPageSelect.Controls.Add(this.groupBoxFSelect);
             this.tabPageSelect.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageSelect.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageSelect.Name = "tabPageSelect";
-            this.tabPageSelect.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPageSelect.Size = new System.Drawing.Size(732, 391);
+            this.tabPageSelect.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageSelect.Size = new System.Drawing.Size(732, 528);
             this.tabPageSelect.TabIndex = 1;
             this.tabPageSelect.Text = "Полная запись SELECT";
             this.tabPageSelect.UseVisualStyleBackColor = true;
@@ -206,11 +206,11 @@
             this.dataGridViewFSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFSelect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFSelect.Location = new System.Drawing.Point(2, 179);
-            this.dataGridViewFSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewFSelect.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewFSelect.Name = "dataGridViewFSelect";
             this.dataGridViewFSelect.RowHeadersWidth = 51;
             this.dataGridViewFSelect.RowTemplate.Height = 24;
-            this.dataGridViewFSelect.Size = new System.Drawing.Size(728, 210);
+            this.dataGridViewFSelect.Size = new System.Drawing.Size(728, 347);
             this.dataGridViewFSelect.TabIndex = 1;
             // 
             // groupBoxFSelect
@@ -224,9 +224,9 @@
             this.groupBoxFSelect.Controls.Add(this.labelOrderID);
             this.groupBoxFSelect.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxFSelect.Location = new System.Drawing.Point(2, 2);
-            this.groupBoxFSelect.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFSelect.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxFSelect.Name = "groupBoxFSelect";
-            this.groupBoxFSelect.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxFSelect.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxFSelect.Size = new System.Drawing.Size(728, 177);
             this.groupBoxFSelect.TabIndex = 0;
             this.groupBoxFSelect.TabStop = false;
@@ -236,7 +236,7 @@
             // 
             this.buttonF_select.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonF_select.Location = new System.Drawing.Point(299, 132);
-            this.buttonF_select.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonF_select.Margin = new System.Windows.Forms.Padding(2);
             this.buttonF_select.Name = "buttonF_select";
             this.buttonF_select.Size = new System.Drawing.Size(141, 26);
             this.buttonF_select.TabIndex = 6;
@@ -248,7 +248,7 @@
             // 
             this.checkBoxOrder.AutoSize = true;
             this.checkBoxOrder.Location = new System.Drawing.Point(16, 102);
-            this.checkBoxOrder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxOrder.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxOrder.Name = "checkBoxOrder";
             this.checkBoxOrder.Size = new System.Drawing.Size(258, 17);
             this.checkBoxOrder.TabIndex = 5;
@@ -258,7 +258,7 @@
             // textBoxMore
             // 
             this.textBoxMore.Location = new System.Drawing.Point(159, 66);
-            this.textBoxMore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxMore.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxMore.Name = "textBoxMore";
             this.textBoxMore.Size = new System.Drawing.Size(102, 20);
             this.textBoxMore.TabIndex = 4;
@@ -267,7 +267,7 @@
             // 
             this.checkBoxMore.AutoSize = true;
             this.checkBoxMore.Location = new System.Drawing.Point(16, 66);
-            this.checkBoxMore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxMore.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxMore.Name = "checkBoxMore";
             this.checkBoxMore.Size = new System.Drawing.Size(150, 17);
             this.checkBoxMore.TabIndex = 3;
@@ -280,9 +280,9 @@
             this.groupBoxDet.Controls.Add(this.radioButtonDet_Type);
             this.groupBoxDet.Controls.Add(this.radioButtonDet_Sales);
             this.groupBoxDet.Location = new System.Drawing.Point(299, 17);
-            this.groupBoxDet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxDet.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxDet.Name = "groupBoxDet";
-            this.groupBoxDet.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxDet.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxDet.Size = new System.Drawing.Size(192, 101);
             this.groupBoxDet.TabIndex = 2;
             this.groupBoxDet.TabStop = false;
@@ -292,7 +292,7 @@
             // 
             this.radioButtonDet_NO.AutoSize = true;
             this.radioButtonDet_NO.Location = new System.Drawing.Point(20, 70);
-            this.radioButtonDet_NO.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonDet_NO.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDet_NO.Name = "radioButtonDet_NO";
             this.radioButtonDet_NO.Size = new System.Drawing.Size(112, 17);
             this.radioButtonDet_NO.TabIndex = 2;
@@ -304,7 +304,7 @@
             // 
             this.radioButtonDet_Type.AutoSize = true;
             this.radioButtonDet_Type.Location = new System.Drawing.Point(20, 49);
-            this.radioButtonDet_Type.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonDet_Type.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDet_Type.Name = "radioButtonDet_Type";
             this.radioButtonDet_Type.Size = new System.Drawing.Size(161, 17);
             this.radioButtonDet_Type.TabIndex = 1;
@@ -316,7 +316,7 @@
             // 
             this.radioButtonDet_Sales.AutoSize = true;
             this.radioButtonDet_Sales.Location = new System.Drawing.Point(20, 28);
-            this.radioButtonDet_Sales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonDet_Sales.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDet_Sales.Name = "radioButtonDet_Sales";
             this.radioButtonDet_Sales.Size = new System.Drawing.Size(141, 17);
             this.radioButtonDet_Sales.TabIndex = 0;
@@ -327,7 +327,7 @@
             // textBoxOrderID
             // 
             this.textBoxOrderID.Location = new System.Drawing.Point(159, 32);
-            this.textBoxOrderID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxOrderID.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxOrderID.Name = "textBoxOrderID";
             this.textBoxOrderID.Size = new System.Drawing.Size(102, 20);
             this.textBoxOrderID.TabIndex = 1;
@@ -347,10 +347,10 @@
             this.tabPageSubquery.Controls.Add(this.dataGridViewSubquery);
             this.tabPageSubquery.Controls.Add(this.groupBoxSubquery);
             this.tabPageSubquery.Location = new System.Drawing.Point(4, 22);
-            this.tabPageSubquery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageSubquery.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageSubquery.Name = "tabPageSubquery";
-            this.tabPageSubquery.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPageSubquery.Size = new System.Drawing.Size(732, 391);
+            this.tabPageSubquery.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPageSubquery.Size = new System.Drawing.Size(732, 528);
             this.tabPageSubquery.TabIndex = 2;
             this.tabPageSubquery.Text = "Примеры подзапросов";
             this.tabPageSubquery.UseVisualStyleBackColor = true;
@@ -360,10 +360,10 @@
             this.dataGridViewSubquery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSubquery.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSubquery.Location = new System.Drawing.Point(2, 121);
-            this.dataGridViewSubquery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewSubquery.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewSubquery.Name = "dataGridViewSubquery";
             this.dataGridViewSubquery.RowHeadersWidth = 51;
-            this.dataGridViewSubquery.Size = new System.Drawing.Size(728, 268);
+            this.dataGridViewSubquery.Size = new System.Drawing.Size(728, 405);
             this.dataGridViewSubquery.TabIndex = 1;
             // 
             // groupBoxSubquery
@@ -375,9 +375,9 @@
             this.groupBoxSubquery.Controls.Add(this.radioButtonCorrelated);
             this.groupBoxSubquery.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxSubquery.Location = new System.Drawing.Point(2, 2);
-            this.groupBoxSubquery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSubquery.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxSubquery.Name = "groupBoxSubquery";
-            this.groupBoxSubquery.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSubquery.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxSubquery.Size = new System.Drawing.Size(728, 119);
             this.groupBoxSubquery.TabIndex = 0;
             this.groupBoxSubquery.TabStop = false;
@@ -386,7 +386,7 @@
             // buttonSubquery
             // 
             this.buttonSubquery.Location = new System.Drawing.Point(115, 77);
-            this.buttonSubquery.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSubquery.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSubquery.Name = "buttonSubquery";
             this.buttonSubquery.Size = new System.Drawing.Size(170, 25);
             this.buttonSubquery.TabIndex = 4;
@@ -397,7 +397,7 @@
             // textBoxNumber
             // 
             this.textBoxNumber.Location = new System.Drawing.Point(77, 16);
-            this.textBoxNumber.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNumber.Name = "textBoxNumber";
             this.textBoxNumber.Size = new System.Drawing.Size(110, 20);
             this.textBoxNumber.TabIndex = 3;
@@ -416,7 +416,7 @@
             // 
             this.radioButtonNoCorrelated.AutoSize = true;
             this.radioButtonNoCorrelated.Location = new System.Drawing.Point(223, 46);
-            this.radioButtonNoCorrelated.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonNoCorrelated.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonNoCorrelated.Name = "radioButtonNoCorrelated";
             this.radioButtonNoCorrelated.Size = new System.Drawing.Size(188, 17);
             this.radioButtonNoCorrelated.TabIndex = 1;
@@ -428,7 +428,7 @@
             // 
             this.radioButtonCorrelated.AutoSize = true;
             this.radioButtonCorrelated.Location = new System.Drawing.Point(42, 46);
-            this.radioButtonCorrelated.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonCorrelated.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonCorrelated.Name = "radioButtonCorrelated";
             this.radioButtonCorrelated.Size = new System.Drawing.Size(175, 17);
             this.radioButtonCorrelated.TabIndex = 0;
@@ -443,9 +443,9 @@
             this.tabPageDML.Controls.Add(this.panelModel);
             this.tabPageDML.Controls.Add(this.groupBoxDML);
             this.tabPageDML.Location = new System.Drawing.Point(4, 22);
-            this.tabPageDML.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageDML.Margin = new System.Windows.Forms.Padding(2);
             this.tabPageDML.Name = "tabPageDML";
-            this.tabPageDML.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPageDML.Padding = new System.Windows.Forms.Padding(2);
             this.tabPageDML.Size = new System.Drawing.Size(732, 528);
             this.tabPageDML.TabIndex = 3;
             this.tabPageDML.Text = "Запросы изменения данных";
@@ -454,7 +454,7 @@
             // buttonSelectModels
             // 
             this.buttonSelectModels.Location = new System.Drawing.Point(318, 291);
-            this.buttonSelectModels.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSelectModels.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSelectModels.Name = "buttonSelectModels";
             this.buttonSelectModels.Size = new System.Drawing.Size(146, 23);
             this.buttonSelectModels.TabIndex = 11;
@@ -467,7 +467,7 @@
             this.dataGridViewModel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewModel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridViewModel.Location = new System.Drawing.Point(2, 318);
-            this.dataGridViewModel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridViewModel.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewModel.Name = "dataGridViewModel";
             this.dataGridViewModel.RowHeadersWidth = 51;
             this.dataGridViewModel.RowTemplate.Height = 24;
@@ -487,7 +487,7 @@
             this.panelModel.Controls.Add(this.label1);
             this.panelModel.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelModel.Location = new System.Drawing.Point(2, 113);
-            this.panelModel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelModel.Margin = new System.Windows.Forms.Padding(2);
             this.panelModel.Name = "panelModel";
             this.panelModel.Size = new System.Drawing.Size(728, 174);
             this.panelModel.TabIndex = 1;
@@ -495,7 +495,7 @@
             // textBoxFileFormat_model
             // 
             this.textBoxFileFormat_model.Location = new System.Drawing.Point(130, 89);
-            this.textBoxFileFormat_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxFileFormat_model.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxFileFormat_model.Name = "textBoxFileFormat_model";
             this.textBoxFileFormat_model.Size = new System.Drawing.Size(108, 20);
             this.textBoxFileFormat_model.TabIndex = 12;
@@ -513,7 +513,7 @@
             // buttonOpenPhoto_model
             // 
             this.buttonOpenPhoto_model.Location = new System.Drawing.Point(316, 135);
-            this.buttonOpenPhoto_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonOpenPhoto_model.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpenPhoto_model.Name = "buttonOpenPhoto_model";
             this.buttonOpenPhoto_model.Size = new System.Drawing.Size(146, 23);
             this.buttonOpenPhoto_model.TabIndex = 10;
@@ -524,7 +524,7 @@
             // pictureBoxPhoto_model
             // 
             this.pictureBoxPhoto_model.Location = new System.Drawing.Point(316, 32);
-            this.pictureBoxPhoto_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxPhoto_model.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxPhoto_model.Name = "pictureBoxPhoto_model";
             this.pictureBoxPhoto_model.Size = new System.Drawing.Size(146, 98);
             this.pictureBoxPhoto_model.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -534,7 +534,7 @@
             // textBoxDimension_model
             // 
             this.textBoxDimension_model.Location = new System.Drawing.Point(130, 58);
-            this.textBoxDimension_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxDimension_model.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxDimension_model.Name = "textBoxDimension_model";
             this.textBoxDimension_model.Size = new System.Drawing.Size(108, 20);
             this.textBoxDimension_model.TabIndex = 8;
@@ -542,7 +542,7 @@
             // textBoxOrderID_model
             // 
             this.textBoxOrderID_model.Location = new System.Drawing.Point(130, 32);
-            this.textBoxOrderID_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxOrderID_model.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxOrderID_model.Name = "textBoxOrderID_model";
             this.textBoxOrderID_model.Size = new System.Drawing.Size(108, 20);
             this.textBoxOrderID_model.TabIndex = 5;
@@ -587,9 +587,9 @@
             this.groupBoxDML.Controls.Add(this.radioButtonInsert_model);
             this.groupBoxDML.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxDML.Location = new System.Drawing.Point(2, 2);
-            this.groupBoxDML.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxDML.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxDML.Name = "groupBoxDML";
-            this.groupBoxDML.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxDML.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxDML.Size = new System.Drawing.Size(728, 111);
             this.groupBoxDML.TabIndex = 0;
             this.groupBoxDML.TabStop = false;
@@ -598,7 +598,7 @@
             // buttonExecuteDML
             // 
             this.buttonExecuteDML.Location = new System.Drawing.Point(292, 76);
-            this.buttonExecuteDML.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonExecuteDML.Margin = new System.Windows.Forms.Padding(2);
             this.buttonExecuteDML.Name = "buttonExecuteDML";
             this.buttonExecuteDML.Size = new System.Drawing.Size(146, 23);
             this.buttonExecuteDML.TabIndex = 11;
@@ -609,7 +609,7 @@
             // textBoxId_model
             // 
             this.textBoxId_model.Location = new System.Drawing.Point(181, 79);
-            this.textBoxId_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxId_model.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxId_model.Name = "textBoxId_model";
             this.textBoxId_model.Size = new System.Drawing.Size(76, 20);
             this.textBoxId_model.TabIndex = 4;
@@ -628,19 +628,20 @@
             // 
             this.radioButtonDelete_model.AutoSize = true;
             this.radioButtonDelete_model.Location = new System.Drawing.Point(479, 32);
-            this.radioButtonDelete_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonDelete_model.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDelete_model.Name = "radioButtonDelete_model";
             this.radioButtonDelete_model.Size = new System.Drawing.Size(264, 17);
             this.radioButtonDelete_model.TabIndex = 2;
             this.radioButtonDelete_model.TabStop = true;
             this.radioButtonDelete_model.Text = "Удалить данные по моделе с заданным кодом";
             this.radioButtonDelete_model.UseVisualStyleBackColor = true;
+            this.radioButtonDelete_model.CheckedChanged += new System.EventHandler(this.radioButtonDelete_model_CheckedChanged);
             // 
             // radioButtonUpdate_model
             // 
             this.radioButtonUpdate_model.AutoSize = true;
             this.radioButtonUpdate_model.Location = new System.Drawing.Point(202, 32);
-            this.radioButtonUpdate_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonUpdate_model.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonUpdate_model.Name = "radioButtonUpdate_model";
             this.radioButtonUpdate_model.Size = new System.Drawing.Size(272, 17);
             this.radioButtonUpdate_model.TabIndex = 1;
@@ -652,7 +653,7 @@
             // 
             this.radioButtonInsert_model.AutoSize = true;
             this.radioButtonInsert_model.Location = new System.Drawing.Point(4, 32);
-            this.radioButtonInsert_model.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButtonInsert_model.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonInsert_model.Name = "radioButtonInsert_model";
             this.radioButtonInsert_model.Size = new System.Drawing.Size(175, 17);
             this.radioButtonInsert_model.TabIndex = 0;
@@ -670,7 +671,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(740, 554);
             this.Controls.Add(this.tabControlSQL);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SQLForm";
             this.Text = "Запросы";
             this.tabControlSQL.ResumeLayout(false);
