@@ -161,7 +161,7 @@ namespace _3DPrinting_ORBD
 
         private void buttonSubquery_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(textBoxNumber.Text))
+            if (String.IsNullOrEmpty(textBoxNumber.Text) && !radioButtonNoCorrelated.Checked)
             {
                 MessageBox.Show("Обязательно укажите номер необходимой продажи",
                "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -170,6 +170,8 @@ namespace _3DPrinting_ORBD
             string sqlSelect = "";
 
             if (radioButtonCorrelated.Checked)
+            {
+                
                 sqlSelect = @"SELECT 
                             m.ModelID,
 	                        m.FileFormat AS [Формат файла],
@@ -183,22 +185,17 @@ namespace _3DPrinting_ORBD
                             [3DModel] m
                         WHERE 
                             m.ModelID = @number;";
-                            else
-                            if (radioButtonNoCorrelated.Checked)
-                                sqlSelect = @"SELECT 
-                                        m.ModelID,
-                                        CASE 
-                                            WHEN fd.FinishedDetailID IS NOT NULL THEN 'Да'
-                                            ELSE 'Нет'
-                                        END AS [Модель использовалась для печати]
-                                    FROM 
-                                        [3DModel] m
-                                    LEFT JOIN 
-                                        FinishedDetail fd ON m.ModelID = fd.ModelID
-                                    WHERE 
-                                        m.ModelID = @number
-                                    GROUP BY 
-                                        m.ModelID, fd.FinishedDetailID;";
+            }
+            else if (radioButtonNoCorrelated.Checked)
+            {
+                sqlSelect = @"SELECT 
+                            o.OrderID,
+                            o.Profit
+                        FROM 
+                            [Order] o
+                        WHERE 
+                            o.Profit > (SELECT AVG(Profit) FROM [Order]);";
+            }
             else
             {
                 MessageBox.Show("Не выбрали вид подзапроса", "Ошибка",
@@ -211,8 +208,10 @@ namespace _3DPrinting_ORBD
             command.CommandText = sqlSelect;
             try
             {
-                command.Parameters.Add("@number", SqlDbType.Int).Value =
-               int.Parse(textBoxNumber.Text);
+                if (!radioButtonNoCorrelated.Checked)
+                {
+                    command.Parameters.Add("@number", SqlDbType.Int).Value = int.Parse(textBoxNumber.Text);
+                }
             }
             catch
             {
@@ -448,6 +447,18 @@ SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
         private void radioButtonDelete_model_CheckedChanged(object sender, EventArgs e)
         {
             panelModel.Visible = !radioButtonDelete_model.Checked;
+
+        }
+
+        private void labelNumber_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonNoCorrelated_CheckedChanged(object sender, EventArgs e)
+        {
+            labelNumber.Visible = !radioButtonNoCorrelated.Checked;
+            textBoxNumber.Visible = !radioButtonNoCorrelated.Checked;
 
         }
     }

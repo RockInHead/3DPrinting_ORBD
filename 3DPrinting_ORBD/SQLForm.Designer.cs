@@ -155,7 +155,7 @@
             this.radioButtonFinishedDetails.Location = new System.Drawing.Point(233, 17);
             this.radioButtonFinishedDetails.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonFinishedDetails.Name = "radioButtonFinishedDetails";
-            this.radioButtonFinishedDetails.Size = new System.Drawing.Size(106, 17);
+            this.radioButtonFinishedDetails.Size = new System.Drawing.Size(124, 19);
             this.radioButtonFinishedDetails.TabIndex = 2;
             this.radioButtonFinishedDetails.TabStop = true;
             this.radioButtonFinishedDetails.Text = "Готовые детали";
@@ -168,7 +168,7 @@
             this.radioButtonOrders.Location = new System.Drawing.Point(122, 17);
             this.radioButtonOrders.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonOrders.Name = "radioButtonOrders";
-            this.radioButtonOrders.Size = new System.Drawing.Size(64, 17);
+            this.radioButtonOrders.Size = new System.Drawing.Size(71, 19);
             this.radioButtonOrders.TabIndex = 1;
             this.radioButtonOrders.TabStop = true;
             this.radioButtonOrders.Text = "Заказы";
@@ -181,7 +181,7 @@
             this.radioButtonCustomers.Location = new System.Drawing.Point(4, 17);
             this.radioButtonCustomers.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonCustomers.Name = "radioButtonCustomers";
-            this.radioButtonCustomers.Size = new System.Drawing.Size(79, 17);
+            this.radioButtonCustomers.Size = new System.Drawing.Size(88, 19);
             this.radioButtonCustomers.TabIndex = 0;
             this.radioButtonCustomers.TabStop = true;
             this.radioButtonCustomers.Text = "Заказчики";
@@ -250,7 +250,7 @@
             this.checkBoxOrder.Location = new System.Drawing.Point(16, 102);
             this.checkBoxOrder.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxOrder.Name = "checkBoxOrder";
-            this.checkBoxOrder.Size = new System.Drawing.Size(258, 17);
+            this.checkBoxOrder.Size = new System.Drawing.Size(293, 19);
             this.checkBoxOrder.TabIndex = 5;
             this.checkBoxOrder.Text = " Включить сортировку по убыванию прибыли.";
             this.checkBoxOrder.UseVisualStyleBackColor = true;
@@ -269,7 +269,7 @@
             this.checkBoxMore.Location = new System.Drawing.Point(16, 66);
             this.checkBoxMore.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxMore.Name = "checkBoxMore";
-            this.checkBoxMore.Size = new System.Drawing.Size(150, 17);
+            this.checkBoxMore.Size = new System.Drawing.Size(173, 19);
             this.checkBoxMore.TabIndex = 3;
             this.checkBoxMore.Text = "Выбрать прибыль более";
             this.checkBoxMore.UseVisualStyleBackColor = true;
@@ -294,7 +294,7 @@
             this.radioButtonDet_NO.Location = new System.Drawing.Point(20, 70);
             this.radioButtonDet_NO.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDet_NO.Name = "radioButtonDet_NO";
-            this.radioButtonDet_NO.Size = new System.Drawing.Size(112, 17);
+            this.radioButtonDet_NO.Size = new System.Drawing.Size(130, 19);
             this.radioButtonDet_NO.TabIndex = 2;
             this.radioButtonDet_NO.TabStop = true;
             this.radioButtonDet_NO.Text = "Нет детализации";
@@ -306,7 +306,7 @@
             this.radioButtonDet_Type.Location = new System.Drawing.Point(20, 49);
             this.radioButtonDet_Type.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDet_Type.Name = "radioButtonDet_Type";
-            this.radioButtonDet_Type.Size = new System.Drawing.Size(161, 17);
+            this.radioButtonDet_Type.Size = new System.Drawing.Size(184, 19);
             this.radioButtonDet_Type.TabIndex = 1;
             this.radioButtonDet_Type.TabStop = true;
             this.radioButtonDet_Type.Text = "Прибыль по типу пластика";
@@ -318,7 +318,7 @@
             this.radioButtonDet_Sales.Location = new System.Drawing.Point(20, 28);
             this.radioButtonDet_Sales.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDet_Sales.Name = "radioButtonDet_Sales";
-            this.radioButtonDet_Sales.Size = new System.Drawing.Size(141, 17);
+            this.radioButtonDet_Sales.Size = new System.Drawing.Size(161, 19);
             this.radioButtonDet_Sales.TabIndex = 0;
             this.radioButtonDet_Sales.TabStop = true;
             this.radioButtonDet_Sales.Text = "Прибыль по продажам";
@@ -338,7 +338,7 @@
             this.labelOrderID.Location = new System.Drawing.Point(14, 32);
             this.labelOrderID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelOrderID.Name = "labelOrderID";
-            this.labelOrderID.Size = new System.Drawing.Size(94, 13);
+            this.labelOrderID.Size = new System.Drawing.Size(102, 15);
             this.labelOrderID.TabIndex = 0;
             this.labelOrderID.Text = "ФИО Заказчика:";
             // 
@@ -396,7 +396,7 @@
             // 
             // textBoxNumber
             // 
-            this.textBoxNumber.Location = new System.Drawing.Point(77, 16);
+            this.textBoxNumber.Location = new System.Drawing.Point(94, 14);
             this.textBoxNumber.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNumber.Name = "textBoxNumber";
             this.textBoxNumber.Size = new System.Drawing.Size(110, 20);
@@ -408,9 +408,10 @@
             this.labelNumber.Location = new System.Drawing.Point(40, 19);
             this.labelNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNumber.Name = "labelNumber";
-            this.labelNumber.Size = new System.Drawing.Size(44, 13);
+            this.labelNumber.Size = new System.Drawing.Size(54, 15);
             this.labelNumber.TabIndex = 2;
-            this.labelNumber.Text = "OrderID";
+            this.labelNumber.Text = "ModelID";
+            this.labelNumber.Click += new System.EventHandler(this.labelNumber_Click);
             // 
             // radioButtonNoCorrelated
             // 
@@ -418,11 +419,12 @@
             this.radioButtonNoCorrelated.Location = new System.Drawing.Point(223, 46);
             this.radioButtonNoCorrelated.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonNoCorrelated.Name = "radioButtonNoCorrelated";
-            this.radioButtonNoCorrelated.Size = new System.Drawing.Size(188, 17);
+            this.radioButtonNoCorrelated.Size = new System.Drawing.Size(214, 19);
             this.radioButtonNoCorrelated.TabIndex = 1;
             this.radioButtonNoCorrelated.TabStop = true;
             this.radioButtonNoCorrelated.Text = "Некоррелированный подзапрос";
             this.radioButtonNoCorrelated.UseVisualStyleBackColor = true;
+            this.radioButtonNoCorrelated.CheckedChanged += new System.EventHandler(this.radioButtonNoCorrelated_CheckedChanged);
             // 
             // radioButtonCorrelated
             // 
@@ -430,7 +432,7 @@
             this.radioButtonCorrelated.Location = new System.Drawing.Point(42, 46);
             this.radioButtonCorrelated.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonCorrelated.Name = "radioButtonCorrelated";
-            this.radioButtonCorrelated.Size = new System.Drawing.Size(175, 17);
+            this.radioButtonCorrelated.Size = new System.Drawing.Size(200, 19);
             this.radioButtonCorrelated.TabIndex = 0;
             this.radioButtonCorrelated.TabStop = true;
             this.radioButtonCorrelated.Text = "Коррелированный подзапрос";
@@ -506,7 +508,7 @@
             this.label4.Location = new System.Drawing.Point(26, 89);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 13);
+            this.label4.Size = new System.Drawing.Size(121, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "Расширение файла";
             // 
@@ -553,7 +555,7 @@
             this.label3.Location = new System.Drawing.Point(314, 16);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.Size = new System.Drawing.Size(86, 15);
             this.label3.TabIndex = 7;
             this.label3.Text = "Фото модели";
             // 
@@ -563,7 +565,7 @@
             this.label2.Location = new System.Drawing.Point(26, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.Size = new System.Drawing.Size(107, 15);
             this.label2.TabIndex = 6;
             this.label2.Text = "Размеры модели";
             // 
@@ -573,7 +575,7 @@
             this.label1.Location = new System.Drawing.Point(26, 37);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.Size = new System.Drawing.Size(50, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "OrderID";
             // 
@@ -620,7 +622,7 @@
             this.labelId_model.Location = new System.Drawing.Point(86, 81);
             this.labelId_model.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelId_model.Name = "labelId_model";
-            this.labelId_model.Size = new System.Drawing.Size(67, 13);
+            this.labelId_model.Size = new System.Drawing.Size(76, 15);
             this.labelId_model.TabIndex = 3;
             this.labelId_model.Text = "Код модели";
             // 
@@ -630,7 +632,7 @@
             this.radioButtonDelete_model.Location = new System.Drawing.Point(479, 32);
             this.radioButtonDelete_model.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonDelete_model.Name = "radioButtonDelete_model";
-            this.radioButtonDelete_model.Size = new System.Drawing.Size(264, 17);
+            this.radioButtonDelete_model.Size = new System.Drawing.Size(299, 19);
             this.radioButtonDelete_model.TabIndex = 2;
             this.radioButtonDelete_model.TabStop = true;
             this.radioButtonDelete_model.Text = "Удалить данные по моделе с заданным кодом";
@@ -643,7 +645,7 @@
             this.radioButtonUpdate_model.Location = new System.Drawing.Point(202, 32);
             this.radioButtonUpdate_model.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonUpdate_model.Name = "radioButtonUpdate_model";
-            this.radioButtonUpdate_model.Size = new System.Drawing.Size(272, 17);
+            this.radioButtonUpdate_model.Size = new System.Drawing.Size(308, 19);
             this.radioButtonUpdate_model.TabIndex = 1;
             this.radioButtonUpdate_model.TabStop = true;
             this.radioButtonUpdate_model.Text = "Изменить данные по моделе с заданным кодом";
@@ -655,7 +657,7 @@
             this.radioButtonInsert_model.Location = new System.Drawing.Point(4, 32);
             this.radioButtonInsert_model.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonInsert_model.Name = "radioButtonInsert_model";
-            this.radioButtonInsert_model.Size = new System.Drawing.Size(175, 17);
+            this.radioButtonInsert_model.Size = new System.Drawing.Size(200, 19);
             this.radioButtonInsert_model.TabIndex = 0;
             this.radioButtonInsert_model.TabStop = true;
             this.radioButtonInsert_model.Text = "Добавить данные по моделе ";
