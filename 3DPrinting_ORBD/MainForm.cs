@@ -12,7 +12,6 @@ namespace _3DPrinting_ORBD
         public MainForm()
         {
             InitializeComponent();
-          
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)

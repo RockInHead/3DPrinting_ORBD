@@ -203,7 +203,7 @@ namespace _3DPrinting_ORBD
                 return;
             }
             SqlConnection connection = new
-           SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
+            SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
             SqlCommand command = connection.CreateCommand();
             command.CommandText = sqlSelect;
             try
@@ -277,7 +277,7 @@ namespace _3DPrinting_ORBD
             string sqlInsert = @"INSERT INTO [3DModel] (ModelID, OrderID, Dimensions,Sreenshot, FileFormat)
                  VALUES (@id, @orderId, @dimensions, @sreenshot, @fileFormat)";
             SqlConnection connection = new
-           SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
+            SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
             connection.Open();
             SqlCommand command = connection.CreateCommand();
             command.CommandText = sqlInsert;
@@ -348,8 +348,8 @@ namespace _3DPrinting_ORBD
             }
 
             string sqlUpdate = "UPDATE [3DModel] SET {0} WHERE ModelID = @id";
- SqlConnection connection = new
-SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
+             SqlConnection connection = new
+            SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
             connection.Open();
             SqlCommand command = connection.CreateCommand();
             string sqlValues = "";
@@ -459,6 +459,21 @@ SqlConnection(Properties.Settings.Default._3D_PrintingConnectionString);
         {
             labelNumber.Visible = !radioButtonNoCorrelated.Checked;
             textBoxNumber.Visible = !radioButtonNoCorrelated.Checked;
+
+        }
+
+        private void radioButtonCorrelated_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonInsert_model_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxSelect_Enter(object sender, EventArgs e)
+        {
 
         }
     }
